@@ -1,0 +1,1286 @@
+
+/* Repeating Sections Counter */
+
+.sheet-repeating-fields {
+  counter-reset: sheet-rep-items -1;
+}
+
+.sheet-counter::before {
+  counter-increment: sheet-rep-items;
+  content: counter(sheet-rep-items) '. ';
+}
+
+/* Menu Show/Hide */
+
+.sheet-aitab1:checked~.sheet-exocortex,
+.sheet-aitab2:checked~.sheet-drone,
+.sheet-section-show:not(:checked)~.sheet-section,
+.sheet-misc-show:not(:checked)~.sheet-misc,
+.sheet-macro-show:not(:checked)~.sheet-macro,
+.sheet-init-macro-show:not(:checked)~.sheet-init-macro,
+.sheet-init-notes-show:not(:checked)~.sheet-init-notes,
+.sheet-weapon-show:not(:checked)~.sheet-weapon,
+.sheet-misc-skills-show:not(:checked)~.sheet-misc-skills,
+.sheet-settings-show:not(:checked)~.sheet-settings,
+.sheet-spell-0-show:not(:checked)~.sheet-spell-0,
+.sheet-spell-1-show:not(:checked)~.sheet-spell-1,
+.sheet-spell-2-show:not(:checked)~.sheet-spell-2,
+.sheet-spell-3-show:not(:checked)~.sheet-spell-3,
+.sheet-spell-4-show:not(:checked)~.sheet-spell-4,
+.sheet-spell-5-show:not(:checked)~.sheet-spell-5,
+.sheet-spell-6-show:not(:checked)~.sheet-spell-6,
+.sheet-feat-show:not(:checked)~.sheet-feat,
+.sheet-pc-character-notes-show:not(:checked)~.sheet-pc-character-notes,
+.sheet-campaign-notes-show:not(:checked)~.sheet-campaign-notes,
+.sheet-pc-special-defenses-show:not(:checked)~.sheet-pc-special-defenses,
+.sheet-augmentation-show:not(:checked)~.sheet-augmentation,
+.sheet-spd-show:not(:checked)~.sheet-spd,
+.sheet-spcst-show:not(:checked)~.sheet-spcst,
+.sheet-spday-show:not(:checked)~.sheet-spday,
+.sheet-spcon-show:not(:checked)~.sheet-spcon,
+.sheet-pc-details-show:not(:checked)~.sheet-pc-details,
+.sheet-pc-armor-upgrades-show:not(:checked)~.sheet-pc-armor-upgrades,
+.sheet-armor-upgrades-show:not(:checked)~.sheet-armor-upgrades,
+.sheet-pc-class-show:not(:checked)~.sheet-pc-class,
+.sheet-pc-theme-show:not(:checked)~.sheet-pc-theme,
+.sheet-pc-misc-show:not(:checked)~.sheet-pc-misc,
+.sheet-pc-racial-show:not(:checked)~.sheet-pc-racial,
+.sheet-pc-feat-calculations-show:not(:checked)~.sheet-pc-feat-calculations,
+.sheet-pc-notes-show:not(:checked)~.sheet-pc-notes,
+.sheet-pc-skill-ranks-show:not(:checked)~.sheet-pc-skill-ranks,
+.sheet-pc-attack-notes-show:not(:checked)~.sheet-pc-attack-notes,
+.sheet-pc-base-attacks-show:not(:checked)~.sheet-pc-base-attacks,
+.sheet-pc-abilities-show:not(:checked)~.sheet-pc-abilities,
+.sheet-pc-abilities-list-show:not(:checked)~.sheet-pc-abilities-list,
+.sheet-pc-augmentations-show:not(:checked)~.sheet-pc-augmentations,
+.sheet-pc-health-show:not(:checked)~.sheet-pc-health,
+.sheet-pc-armor-show:not(:checked)~.sheet-pc-armor,
+.sheet-pc-class-feature-show:not(:checked)~.sheet-pc-class-feature,
+.sheet-pc-ac-show:not(:checked)~.sheet-pc-ac,
+.sheet-pc-skills-show:not(:checked)~.sheet-pc-skills,
+.sheet-pc-saves-show:not(:checked)~.sheet-pc-saves,
+.sheet-pc-currency-show:not(:checked)~.sheet-pc-currency,
+.sheet-pc-init-show:not(:checked)~.sheet-pc-init,
+.sheet-pc-weapons-show:not(:checked)~.sheet-pc-weapons,
+.sheet-pc-pouches-show:not(:checked)~.sheet-pc-pouches,
+.sheet-pc-feat-show:not(:checked)~.sheet-pc-feat,
+.sheet-pc-inventory-show:not(:checked)~.sheet-pc-inventory,
+.sheet-pc-loads-lift-show:not(:checked)~.sheet-pc-loads-lift,
+.sheet-pc-encumbrance-show:not(:checked)~.sheet-pc-encumbrance,
+.sheet-pc-spells-show:not(:checked)~.sheet-pc-spells,
+.sheet-lvl-0-spells-show:not(:checked)~.sheet-lvl-0-spells,
+.sheet-lvl-1-spells-show:not(:checked)~.sheet-lvl-1-spells,
+.sheet-lvl-2-spells-show:not(:checked)~.sheet-lvl-2-spells,
+.sheet-lvl-3-spells-show:not(:checked)~.sheet-lvl-3-spells,
+.sheet-lvl-4-spells-show:not(:checked)~.sheet-lvl-4-spells,
+.sheet-lvl-5-spells-show:not(:checked)~.sheet-lvl-5-spells,
+.sheet-lvl-6-spells-show:not(:checked)~.sheet-lvl-6-spells,
+.sheet-drone-details-show:not(:checked)~.sheet-drone-details,
+.sheet-drone-mods-show:not(:checked)~.sheet-drone-mods,
+.sheet-drone-abilites-show:not(:checked)~.sheet-drone-abilities,
+.sheet-drone-ability-show:not(:checked)~.sheet-drone-ability,
+.sheet-drone-skills-show:not(:checked)~.sheet-drone-skills,
+.sheet-drone-notes-show:not(:checked)~.sheet-drone-notes,
+.sheet-drone-feats-show:not(:checked)~.sheet-drone-feats,
+.sheet-drone-weapons-show:not(:checked)~.sheet-drone-weapons,
+.sheet-exocortex-details-show:not(:checked)~.sheet-exocortex-details,
+.sheet-exocortex-abilities-show:not(:checked)~.sheet-exocortex-abilities,
+.sheet-exocortex-level-1-abilities:not(:checked)~.sheet-exocortex-level-1-abilities,
+.sheet-exocortex-level-5-abilities:not(:checked)~.sheet-exocortex-level-5-abilities,
+.sheet-exocortex-level-7-abilities:not(:checked)~.sheet-exocortex-level-7-abilities,
+.sheet-exocortex-level-10-abilities:not(:checked)~.sheet-exocortex-level-10-abilities,
+.sheet-exocortex-level-15-abilities:not(:checked)~.sheet-exocortex-level-15-abilities,
+.sheet-exocortex-level-20-abilities:not(:checked)~.sheet-exocortex-level-20-abilities,
+.sheet-shiptab1:not(:checked)~.sheet-ship-core,
+.sheet-shiptab2:not(:checked)~.sheet-ship-weapons,
+.sheet-shiptab3:not(:checked)~.sheet-ship-crew-actions,
+.sheet-starship-details-show:not(:checked)~.sheet-starship-details,
+.sheet-starship-crew-show:not(:checked)~.sheet-starship-crew,
+.sheet-starship-damage-show:not(:checked)~.sheet-starship-damage,
+.sheet-starship-captain-actions-show:not(:checked)~.sheet-starship-captain-actions,
+.sheet-starship-engineer-actions-show:not(:checked)~.sheet-starship-engineer-actions,
+.sheet-starship-gunner-actions-show:not(:checked)~.sheet-starship-gunner-actions,
+.sheet-starship-pilot-actions-show:not(:checked)~.sheet-starship-pilot-actions,
+.sheet-starship-science-officer-actions-show:not(:checked)~.sheet-starship-science-officer-actions,
+.sheet-starship-stunt-actions-show:not(:checked)~.sheet-starship-stunt-actions,
+.sheet-Barrel-Roll-macro-show:not(:checked)~.sheet-Barrel-Roll-macro,
+.sheet-Evade-macro-show:not(:checked)~.sheet-Evade-macro,
+.sheet-Back-Off-macro-show:not(:checked)~.sheet-Back-Off-macro,
+.sheet-Flip-and-Burn-macro-show:not(:checked)~.sheet-Flip-and-Burn-macro,
+.sheet-Flyby-macro-show:not(:checked)~.sheet-Flyby-macro,
+.sheet-Slide-macro-show:not(:checked)~.sheet-Slide-macro,
+.sheet-Turn-In-Place-macro-show:not(:checked)~.sheet-Turn-In-Place-macro,
+.sheet-ship-weapon-tab1:not(:checked)~.sheet-ship-weapons-fwd,
+.sheet-ship-weapon-tab2:not(:checked)~.sheet-ship-weapons-port,
+.sheet-ship-weapon-tab3:not(:checked)~.sheet-ship-weapons-aft,
+.sheet-ship-weapon-tab4:not(:checked)~.sheet-ship-weapons-starboard,
+.sheet-ship-weapon-tab5:not(:checked)~.sheet-ship-weapons-turret,
+.sheet-fwd-weapon-show:not(:checked)~.sheet-fwd-weapon,
+.sheet-port-weapon-show:not(:checked)~.sheet-port-weapon,
+.sheet-aft-weapon-show:not(:checked)~.sheet-aft-weapon,
+.sheet-starboard-weapon-show:not(:checked)~.sheet-starboard-weapon,
+.sheet-turret-weapon-show:not(:checked)~.sheet-turret-weapon,
+.sheet-npc-general-show:not(:checked)~.sheet-npc-general,
+.sheet-npc-defense-show:not(:checked)~.sheet-npc-defense,
+.sheet-npc-offense-show:not(:checked)~.sheet-npc-offense,
+.sheet-npc-tactics-show:not(:checked)~.sheet-npc-tactics,
+.sheet-npc-statistics-show:not(:checked)~.sheet-npc-statistics,
+.sheet-npc-skills-show:not(:checked)~.sheet-npc-skills,
+.sheet-npc-cgear-show:not(:checked)~.sheet-npc-cgear,
+.sheet-npc-ogear-show:not(:checked)~.sheet-npc-ogear,
+.sheet-npc-feats-show:not(:checked)~.sheet-npc-feats,
+.sheet-npc-weapons-show:not(:checked)~.sheet-npc-weapons,
+.sheet-npc-special-attacks-show:not(:checked)~.sheet-npc-special-attacks,
+.sheet-npc-spells-show:not(:checked)~.sheet-npc-spells,
+.sheet-npc-spell-like-abilities-show:not(:checked)~.sheet-npc-spell-like-abilities,
+.sheet-npc-before-combat-show:not(:checked)~.sheet-npc-before-combat,
+.sheet-npc-during-combat-show:not(:checked)~.sheet-npc-during-combat,
+.sheet-npc-morale-show:not(:checked)~.sheet-npc-morale,
+.sheet-npc-base-statistics-show:not(:checked)~.sheet-npc-base-statistics,
+.sheet-npc-special-abilities-show:not(:checked)~.sheet-npc-special-abilities,
+.sheet-community-use-show:not(:checked)~.sheet-community-use {
+    display:none;
+}
+
+/* Main Sheet Tabs */
+
+div.sheet-tab-content { display: none; }
+
+input.sheet-tab1:checked ~ div.sheet-tab1,
+input.sheet-tab2:checked ~ div.sheet-tab2,
+input.sheet-tab3:checked ~ div.sheet-tab3,
+input.sheet-tab4:checked ~ div.sheet-tab4,
+input.sheet-tab5:checked ~ div.sheet-tab5,
+input.sheet-tab6:checked ~ div.sheet-tab6,
+input.sheet-tab7:checked ~ div.sheet-tab7, {
+    display: block;
+}
+
+/* PC Ability Tabs */
+
+div.sheet-tab-content { display: none; }
+
+input.sheet-abtab1:checked ~ div.sheet-abtab1,
+input.sheet-abtab2:checked ~ div.sheet-abtab2,
+input.sheet-abtab3:checked ~ div.sheet-abtab3,
+input.sheet-abtab4:checked ~ div.sheet-abtab4,
+input.sheet-abtab5:checked ~ div.sheet-abtab5,
+input.sheet-abtab6:checked ~ div.sheet-abtab6,
+input.sheet-abtab7:checked ~ div.sheet-abtab7, {
+    display: block;
+}
+
+/* PC Sheet Tabs */
+
+div.sheet-tab-content { display: none; }
+
+input.sheet-pctab1:checked ~ div.sheet-pctab1,
+input.sheet-pctab2:checked ~ div.sheet-pctab2,
+input.sheet-pctab3:checked ~ div.sheet-pctab3,
+input.sheet-pctab4:checked ~ div.sheet-pctab4,
+input.sheet-pctab5:checked ~ div.sheet-pctab5,
+input.sheet-pctab6:checked ~ div.sheet-pctab6,
+input.sheet-pctab7:checked ~ div.sheet-pctab7,
+input.sheet-pctab8:checked ~ div.sheet-pctab8, {
+    display: block;
+}
+
+/* Spell Tabs */
+
+div.sheet-tab-content { display: none; }
+
+input.sheet-sptab1:checked ~ div.sheet-sptab1,
+input.sheet-sptab2:checked ~ div.sheet-sptab2,
+input.sheet-sptab3:checked ~ div.sheet-sptab3,
+input.sheet-sptab4:checked ~ div.sheet-sptab4,
+input.sheet-sptab5:checked ~ div.sheet-sptab5,
+input.sheet-sptab6:checked ~ div.sheet-sptab6,
+input.sheet-sptab7:checked ~ div.sheet-sptab7,
+input.sheet-sptab8:checked ~ div.sheet-sptab8, {
+    display: block;
+}
+
+/* PC Spellclass-1 Tabs */
+
+div.sheet-tab-content { display: none; }
+
+input.sheet-spellclass-tab1:checked ~ div.sheet-spellclass-tab1,
+input.sheet-spellclass-tab2:checked ~ div.sheet-spellclass-tab2,
+input.sheet-spellclass-tab3:checked ~ div.sheet-spellclass-tab3,
+input.sheet-spellclass-tab4:checked ~ div.sheet-spellclass-tab4,
+input.sheet-spellclass-tab5:checked ~ div.sheet-spellclass-tab5,
+input.sheet-spellclass-tab6:checked ~ div.sheet-spellclass-tab6,
+input.sheet-spellclass-tab7:checked ~ div.sheet-spellclass-tab7,
+input.sheet-spellclass-tab8:checked ~ div.sheet-spellclass-tab8, {
+    display: block;
+}
+
+/* AI Tabs */
+
+div.sheet-tab-content { display: none; }
+
+input.sheet-aitab1:checked ~ div.sheet-aitab1,
+input.sheet-aitab2:checked ~ div.sheet-aitab2, {
+    display: block;
+}
+
+/* Ship Tabs */
+
+div.sheet-tab-content { display: none; }
+
+input.sheet-shiptab1:checked ~ div.sheet-shiptab1,
+input.sheet-shiptab2:checked ~ div.sheet-shiptab2,
+input.sheet-shiptab3:checked ~ div.sheet-shiptab3,{
+    display: block;
+}
+
+/* Ship Weapon Tabs */
+
+div.sheet-tab-content { display: none; }
+
+input.sheet-ship-weapon-tab1:checked ~ div.sheet-ship-weapon-tab1,
+input.sheet-ship-weapon-tab2:checked ~ div.sheet-ship-weapon-tab2,
+input.sheet-ship-weapon-tab3:checked ~ div.sheet-ship-weapon-tab3,
+input.sheet-ship-weapon-tab4:checked ~ div.sheet-ship-weapon-tab4,
+input.sheet-ship-weapon-tab5:checked ~ div.sheet-ship-weapon-tab5, {
+    display: block;
+}
+
+/* Drone Ability Tabs */
+
+div.sheet-tab-content { display: none; }
+
+input.sheet-drtab1:checked ~ div.sheet-drtab1,
+input.sheet-drtab2:checked ~ div.sheet-drtab2,
+input.sheet-drtab3:checked ~ div.sheet-drtab3,
+input.sheet-drtab4:checked ~ div.sheet-drtab4,
+input.sheet-drtab5:checked ~ div.sheet-drtab5,
+input.sheet-drtab6:checked ~ div.sheet-drtab6,
+input.sheet-drtab7:checked ~ div.sheet-drtab7, {
+    display: block;
+}
+
+.sheet-tab
+{
+    display: none;
+    padding: 3px;
+}
+
+.sheet-tab:checked ~ .sheet-show
+{
+    display: block;
+    border: solid thin gray;
+    background-color: #20537E;
+    margin: 1px 0px 0px -2px;
+}
+
+.sheet-tab
+{
+    display: inline-block;
+    text-align: center;
+    margin: -17px;
+    padding: 2px;
+    width: 64px;
+    height: 20px;
+    background-color: #112b42;
+    border-top-left-radius: 0.5em;
+    border-top-right-radius: 0.5em;
+    border: solid thin gray;
+    border-bottom: none;
+}
+
+.sheet-tab:checked ~ .sheet-tab
+{
+    background-color: #20537E;
+}
+
+/* Auto-Expanding Text Area*/
+
+.sheet-small-label2 {
+    display: inline-block;
+    height: 2em;
+    min-height: 2em;
+    position: relative;
+}
+.sheet-small-label2 span:not(.sheet-autoexpand) {
+    display:block;
+    position: relative;
+    bottom: -3px;
+}
+
+/* generic fields */
+
+.sheet-small-label2 > input,
+.sheet-small-label2 > select {
+    display:block;
+}
+
+
+.sheet-small-label2.sheet-autoexpand {
+	padding-top:.5em ;
+	width:auto;
+	min-width:2.5em;
+}
+.sheet-small-label2.sheet-autoexpand input[type="text"].sheet-autoexpand {
+	position:absolute;
+	overflow:hidden;
+	height:.5em;
+	top:.2em;
+}
+.sheet-small-label2.sheet-autoexpand span.sheet-autoexpand {
+	visibility:hidden;
+	width:100%;
+	white-space:pre-wrap;
+	word-wrap:break-word;
+	overflow-wrap:break-word;
+	display:block;
+}
+
+/* Remove Dropbox Arrow */
+
+select {
+
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    text-indent: 1px;
+    text-overflow: '';
+}
+
+/* Checkboxes */
+
+input[type="checkbox"] + span::before
+{
+    margin-right: 4px;
+    line-height: 14px;
+    text-align: center;
+    display: inline-block;
+    vertical-align: middle;
+    
+    content: "";
+    width: 14px;
+    height: 14px;
+    font-size: 12px;
+}
+input[type="checkbox"]:checked + span::before
+{
+    content: "";
+}
+
+hr {
+    border-color:black;
+}
+
+/*Rounded Box Container*/
+
+.sheet-box {
+  border: 1px solid gray ;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+  background-color: white;
+}
+
+/* Tables */
+
+.sheet-table {
+    display:table;
+    width:100%;
+}
+
+.sheet-small-label {
+    font-size: 85%!important;
+    font-style: italic;
+    font-weight: bold;
+}
+
+.sheet-table-name {
+    display:table-caption;
+    text-align:center;
+    font-weight:bold;
+    color:white;
+    background-color:#20537E;
+    width:100%;
+}
+
+.sheet-table-header {
+    display:table-cell;
+    text-align:center;
+    font-weight:bold;
+    vertical-align:bottom;
+}
+
+.sheet-table-subheader {
+    display:table-cell;
+    text-align:center;
+    font-size:10px;
+    vertical-align:bottom;
+}
+
+/* Images */
+
+.sheet-table-background {
+    background-image: url("https://i.imgur.com/lmuWt29.png?1");
+    background-repeat: no-repeat;
+    background-position: center top;
+}
+
+.sheet-table-background1 {
+    background-image: url("https://i.imgur.com/KANQ2ew.png");
+    background-repeat: no-repeat;
+    background-position: right bottom;
+}
+
+.sheet-table-background-main {
+    background-image: url("https://i.imgur.com/mwff88n.png");
+    background-repeat: repeat;
+    background-position: center top;
+}
+
+/* Table Positons and Placement */
+
+.sheet-table-data {
+    display:table-cell;
+    vertical-align:middle;
+}
+
+.sheet-table-data-left {
+    display:table-cell;
+    text-align:left;
+    vertical-align:middle;
+}
+
+.sheet-table-data-right {
+    display:table-cell;
+    text-align:right;
+    vertical-align:middle;
+}
+
+.sheet-table-data-center {
+    display:table-cell;
+    text-align:center;
+    vertical-align:middle;
+}
+
+.sheet-table-data-center-2 {
+    display:table-cell;
+    text-align:left;
+    vertical-align:middle;
+}
+
+.sheet-table-row {
+    display:table-row;
+    vertical-align:middle;
+    width:100%;
+}
+
+.sheet-table-row1 {
+    display:table-row;
+    vertical-align:bottom;
+    width:100%;    
+}
+
+.sheet-table-row-name {
+    display:table-cell;
+    text-align:center;
+    vertical-align:middle;
+    color:black;
+    background-color:transparent;
+    font-weight:bold;
+}
+
+.sheet-table-row1-name {
+    display:table-cell;
+    text-align:center;
+    vertical-align:middle;
+    color:white;
+    background-color:black;
+    font-weight:bold;
+}
+
+.sheet-center {
+    text-align:center;
+}
+
+.sheet-label {
+    font-weight:bold;
+    text-align:center;
+}
+
+/* Remove Input Box Arrows */
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type="number"] {
+    -moz-appearance: textfield;
+}
+
+input[type="text"], select {
+    width:100%;
+    margin:0;
+}
+textarea {
+    height: initial;
+    resize: initial;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+/* Buttons */
+
+.sheet-text-button {
+    font-size:100%;
+    color:white;
+    background-color:black;
+    border:0px;
+}
+
+button,
+button:hover,
+button:active
+{
+    background-image: none;
+}
+
+/* Roll Templates */
+
+.sheet-rolltemplate-pf_check .sheet-wrapper {
+  background: linear-gradient(#03778E, #00465C, #123352);
+  border-bottom-right-radius: 10px;
+  border-bottom-left-radius: 10px;
+  border-top-right-radius: 10px;
+  border-top-left-radius: 10px;
+}
+
+.sheet-rolltemplate-pf_check .sheet-border {
+	border-left-style: outset; color: white;
+	border-right-style: outset; color: white;
+	border-bottom-style: outset; color: white;
+	border-width: 2px;
+    border-bottom-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+}
+
+.sheet-rolltemplate-pf_check .sheet-header {
+	color: white;
+    	padding: 2px 0px 2px 4px;
+	font-size: 1.3em;
+    font-weight: bold;
+	text-align: left;
+	font-family: "Verdana", Times, serif;
+    font-variant: small-caps;
+	letter-spacing: 1px;
+	border-color: #F15622;
+	border-style: solid;
+	border-width: 2px;
+	border-top-right-radius: 10px;
+    border-top-left-radius: 10px;
+    -webkit-text-stroke: 1px black;
+}
+
+.sheet-rolltemplate-pf_check .sheet-subheader {
+    color: #F15622;
+    	padding: 2px 10px 2px 10px;
+	font-size: 1em;
+	font-weight: bold;
+	text-align: left;
+	font-family: "Verdana", Times, serif;
+    font-variant: small-caps;
+	letter-spacing: 1px;
+}
+
+.sheet-rolltemplate-pf_check .sheet-header_background {
+    background: url("https://i.imgur.com/sWUd0Jd.jpg");
+    border-color: #3466B0;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    border-style: outset; color: white;
+    border-width: 3px;
+    border-top-right-radius: 10px;
+    border-top-left-radius: 10px;
+    border-collapse: separate;
+}
+
+.sheet-rolltemplate-pf_check .sheet-subheader_background {
+    background-color: transparent;
+	text-align: center;
+    border-color: #79BBDD;
+    border-style: solid;
+    border-width: 0px;
+    border-right-width: 4px;
+	background-size: contain;
+}
+
+.sheet-rolltemplate-pf_check .sheet-tcat {
+	font-weight: bold;
+	color: #FFCA06;
+	font-family: "Verdana", Times, serif;
+	transform: scale(.5, 5);
+}
+
+.sheet-rolltemplate-pf_check .sheet-content {
+	background-color: #000425;
+	padding: 7px 10px 9px 10px;
+	font-size: 0.9em;
+    text-justify: distribute;
+    border-bottom-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+    border-top-right-radius: 10px;
+    border-top-left-radius: 10px;
+    border-style: ridge;
+    color: white;
+    border-color: #FFCA06;
+    margin-left: 5px;
+    margin-right: 5px;
+    margin-bottom: 5px;
+}
+ 
+.sheet-rolltemplate-pf_check .inlinerollresult  {
+    	background-color: transparent;
+    	border: none;
+}
+ 
+.sheet-rolltemplate-pf_check .inlinerollresult.fullcrit {
+	color: #3FB315;
+    	border: none;
+}
+ 
+.sheet-rolltemplate-pf_check .inlinerollresult.fullfail {
+	color: #B31515;
+    	border: none;
+}
+ 
+.sheet-rolltemplate-pf_check .inlinerollresult.importantroll {
+	color: #4A57ED;
+    	border: none;
+}
+
+.sheet-rolltemplate-pf_attack table {
+    width: 100%;
+    padding: 2px;
+    background: linear-gradient(#03778E, #00465C, #123352);
+  border-bottom-right-radius: 10px;
+  border-bottom-left-radius: 10px;
+}    
+
+.sheet-rolltemplate-pf_attack .sheet-header {
+	color: white;
+    	padding: 2px 0px 2px 4px;
+	font-size: 1.3em;
+    font-weight: bold;
+	text-align: left;
+	font-family: "Verdana", Times, serif;
+    font-variant: small-caps;
+	letter-spacing: 1px;
+	border-color: #F15622;
+	border-style: solid;
+	border-width: 2px;
+	border-top-right-radius: 10px;
+    border-top-left-radius: 10px;
+    -webkit-text-stroke: 1px black;
+}
+
+.sheet-rolltemplate-pf_attack .sheet-subheader {
+    color: #F15622;
+    	padding: 2px 10px 2px 10px;
+	font-size: 1em;
+	font-weight: bold;
+	text-align: left;
+	font-family: "Verdana", Times, serif;
+    font-variant: small-caps;
+	letter-spacing: 1px;
+}
+
+.sheet-rolltemplate-pf_attack .sheet-header_background {
+    background: url("https://i.imgur.com/sWUd0Jd.jpg");
+    border-color: #3466B0;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    border-style: outset; color: white;
+    border-width: 3px;
+    border-top-right-radius: 10px;
+    border-top-left-radius: 10px;
+    border-collapse: separate;
+}
+
+.sheet-rolltemplate-pf_attack .sheet-border {
+	border-left-style: outset; color: white;
+	border-right-style: outset; color: white;
+	border-bottom-style: outset; color: white;
+	border-width: 2px;
+    border-bottom-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+}
+.sheet-rolltemplate-pf_attack th {
+	color: rgb(255, 255, 255);
+    background-color: rgb(32, 83, 126);
+    padding-left: 5px;
+	line-height: 1.1em;
+	font-size: 1em;
+    text-align: left;
+	font-family: "Verdana", Helvetica, sans-serif;
+    text-transform: uppercase;
+}
+ 
+.sheet-rolltemplate-pf_attack .sheet-arrow-right {
+    border-top: 3px solid transparent;
+    border-bottom: 3px solid transparent;
+	border-left: 180px solid rgb(126, 45, 64);
+}
+ 
+.sheet-rolltemplate-pf_attack .sheet-tcat {
+    font-weight: bold;
+	color: #FFCA06;
+	font-family: "Verdana", Times, serif;
+	transform: scale(.5, 5);
+}
+
+.sheet-rolltemplate-pf_attack .sheet-content {
+	background-color: #000425;
+	padding: 7px 10px 9px 10px;
+	font-size: 0.9em;
+    text-align: left;
+    border-bottom-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+    border-style: ridge;
+    color: white;
+    border-color: #FFCA06;
+    margin-left: 5px;
+    margin-right: 5px;
+    margin-bottom: 5px;
+} 
+
+.sheet-rolltemplate-pf_attack td {
+    padding-left: 5px;
+    font-size: 0.9em;
+}
+ 
+.sheet-rolltemplate-pf_attack .inlinerollresult  {
+    background-color: transparent;
+    border: none;
+}
+ 
+.sheet-rolltemplate-pf_attack .inlinerollresult.fullcrit {
+	color: #3FB315;
+    border: none;
+}
+ 
+.sheet-rolltemplate-pf_attack .inlinerollresult.fullfail {
+	color: #B31515;
+    border: none;
+}
+ 
+.sheet-rolltemplate-pf_attack .inlinerollresult.importantroll {
+	color: #4A57ED;
+    border: none;
+}
+
+.sheet-rolltemplate-pf_spell table {
+    width: 100%;
+    padding: 2px;
+    background: linear-gradient(#03778E, #00465C, #123352);
+  border-bottom-right-radius: 10px;
+  border-bottom-left-radius: 10px;
+}
+
+.sheet-rolltemplate-pf_spell .sheet-border {
+	border-left-style: outset; color: white;
+	border-right-style: outset; color: white;
+	border-bottom-style: outset; color: white;
+	border-width: 2px;
+    border-bottom-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+}
+.sheet-rolltemplate-pf_spell th {
+	color: rgb(255, 255, 255);
+    background-color: rgb(32, 83, 126);
+    padding-left: 5px;
+	line-height: 1.1em;
+	font-size: 1em;
+    text-align: left;
+	font-family: "Verdana", Helvetica, sans-serif;
+    text-transform: uppercase;
+}
+ 
+.sheet-rolltemplate-pf_spell .sheet-arrow-right {
+    border-top: 3px solid transparent;
+    border-bottom: 3px solid transparent;
+	border-left: 180px solid rgb(126, 45, 64);
+}
+ 
+.sheet-rolltemplate-pf_spell .sheet-tcat {
+    font-weight: bold;
+	color: #FFCA06;
+	font-family: "Verdana", Times, serif;
+	transform: scale(.5, 5);
+}
+ 
+.sheet-rolltemplate-pf_spell td {
+    padding-left: 5px;
+    font-size: 0.9em;
+}
+ 
+.sheet-rolltemplate-pf_spell .inlinerollresult  {
+    background-color: transparent;
+    border: none;
+}
+ 
+.sheet-rolltemplate-pf_spell .inlinerollresult.fullcrit {
+	color: #3FB315;
+    border: none;
+}
+ 
+.sheet-rolltemplate-pf_spell .inlinerollresult.fullfail {
+	color: #B31515;
+    border: none;
+}
+ 
+.sheet-rolltemplate-pf_spell .inlinerollresult.importantroll {
+	color: #4A57ED;
+    border: none;
+}
+
+.sheet-rolltemplate-pf_attack2 table {
+    width: 100%;
+    padding: 2px;
+    background: linear-gradient(#03778E, #00465C, #123352);
+  border-bottom-right-radius: 10px;
+  border-bottom-left-radius: 10px;
+}    
+
+.sheet-rolltemplate-pf_attack2 .sheet-header {
+	color: white;
+    	padding: 2px 0px 2px 4px;
+	font-size: 1.3em;
+    font-weight: bold;
+	text-align: left;
+	font-family: "Verdana", Times, serif;
+    font-variant: small-caps;
+	letter-spacing: 1px;
+	border-color: #F15622;
+	border-style: solid;
+	border-width: 2px;
+	border-top-right-radius: 10px;
+    border-top-left-radius: 10px;
+    -webkit-text-stroke: 1px black;
+}
+
+.sheet-rolltemplate-pf_attack2 .sheet-subheader {
+    color: #F15622;
+    	padding: 2px 10px 2px 10px;
+	font-size: 1em;
+	font-weight: bold;
+	text-align: left;
+	font-family: "Verdana", Times, serif;
+    font-variant: small-caps;
+	letter-spacing: 1px;
+}
+
+.sheet-rolltemplate-pf_attack2 .sheet-header_background {
+    background: url("https://i.imgur.com/sWUd0Jd.jpg");
+    border-color: #3466B0;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    border-style: outset; color: white;
+    border-width: 3px;
+    border-top-right-radius: 10px;
+    border-top-left-radius: 10px;
+    border-collapse: separate;
+}
+
+.sheet-rolltemplate-pf_attack2 .sheet-border {
+	border-left-style: outset; color: white;
+	border-right-style: outset; color: white;
+	border-bottom-style: outset; color: white;
+	border-width: 2px;
+    border-bottom-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+}
+.sheet-rolltemplate-pf_attack2 th {
+	color: rgb(255, 255, 255);
+    background-color: rgb(32, 83, 126);
+    padding-left: 5px;
+	line-height: 1.1em;
+	font-size: 1em;
+    text-align: left;
+	font-family: "Verdana", Helvetica, sans-serif;
+    text-transform: uppercase;
+}
+ 
+.sheet-rolltemplate-pf_attack2 .sheet-arrow-right {
+    border-top: 3px solid transparent;
+    border-bottom: 3px solid transparent;
+	border-left: 180px solid rgb(126, 45, 64);
+}
+ 
+.sheet-rolltemplate-pf_attack2 .sheet-tcat {
+    font-weight: bold;
+	color: #FFCA06;
+	font-family: "Verdana", Times, serif;
+	transform: scale(.5, 5);
+}
+
+.sheet-rolltemplate-pf_attack2 .sheet-content {
+	background-color: #000425;
+	padding: 7px 10px 9px 10px;
+	font-size: 0.9em;
+    text-align: left;
+    border-bottom-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+    border-style: ridge;
+    color: white;
+    border-color: #FFCA06;
+    margin-left: 5px;
+    margin-right: 5px;
+    margin-bottom: 5px;
+}
+
+.sheet-rolltemplate-pf_attack2 td {
+    padding-left: 5px;
+    font-size: 0.9em;
+}
+ 
+.sheet-rolltemplate-pf_attack2 .inlinerollresult  {
+    background-color: transparent;
+    border: none;
+}
+ 
+.sheet-rolltemplate-pf_attack2 .inlinerollresult.fullcrit {
+	color: #3FB315;
+    border: none;
+}
+ 
+.sheet-rolltemplate-pf_attack2 .inlinerollresult.fullfail {
+	color: #B31515;
+    border: none;
+}
+ 
+.sheet-rolltemplate-pf_attack2 .inlinerollresult.importantroll {
+	color: #4A57ED;
+    border: none;
+}
+
+.sheet-rolltemplate-pf_attack3 table {
+    width: 100%;
+    padding: 2px;
+    background: linear-gradient(#03778E, #00465C, #123352);
+    border-bottom-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+}    
+
+.sheet-rolltemplate-pf_attack3 .sheet-header {
+	color: white;
+    	padding: 2px 0px 2px 4px;
+	font-size: 1.3em;
+    font-weight: bold;
+	text-align: left;
+	font-family: "Verdana", Times, serif;
+    font-variant: small-caps;
+	letter-spacing: 1px;
+	border-color: #F15622;
+	border-style: solid;
+	border-width: 2px;
+	border-top-right-radius: 10px;
+    border-top-left-radius: 10px;
+    -webkit-text-stroke: 1px black;
+}
+
+.sheet-rolltemplate-pf_attack3 .sheet-subheader {
+    color: #F15622;
+    	padding: 2px 10px 2px 10px;
+	font-size: 1em;
+	font-weight: bold;
+	text-align: left;
+	font-family: "Verdana", Times, serif;
+    font-variant: small-caps;
+	letter-spacing: 1px;
+}
+
+.sheet-rolltemplate-pf_attack3 .sheet-header_background {
+    background: url("https://i.imgur.com/sWUd0Jd.jpg");
+    border-color: #3466B0;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    border-style: outset; color: white;
+    border-width: 3px;
+    border-top-right-radius: 10px;
+    border-top-left-radius: 10px;
+    border-collapse: separate;
+}
+
+.sheet-rolltemplate-pf_attack3 .sheet-border {
+	border-left-style: outset; color: white;
+	border-right-style: outset; color: white;
+	border-bottom-style: outset; color: white;
+	border-width: 2px;
+    border-bottom-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+}
+.sheet-rolltemplate-pf_attack3 th {
+	color: rgb(255, 255, 255);
+    background-color: rgb(32, 83, 126);
+    padding-left: 5px;
+	line-height: 1.1em;
+	font-size: 1em;
+    text-align: left;
+	font-family: "Arial", Helvetica, sans-serif;
+    text-transform: uppercase;
+}
+ 
+.sheet-rolltemplate-pf_attack3 .sheet-arrow-right {
+    border-top: 3px solid transparent;
+    border-bottom: 3px solid transparent;
+	border-left: 180px solid rgb(126, 45, 64);
+}
+ 
+.sheet-rolltemplate-pf_attack3 .sheet-tcat {
+    font-weight: bold;
+	color: #FFCA06;
+	font-family: "Verdana", Times, serif;
+	transform: scale(.5, 5);
+}
+
+.sheet-rolltemplate-pf_attack3 .sheet-content {
+	background-color: #000425;
+	padding: 7px 10px 9px 10px;
+	font-size: 0.9em;
+    text-align: left;
+    border-bottom-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+    border-style: ridge;
+    color: white;
+    border-color: #FFCA06;
+    margin-left: 5px;
+    margin-right: 5px;
+    margin-bottom: 5px;
+}
+
+.sheet-rolltemplate-pf_attack3 td {
+    padding-left: 5px;
+    font-size: 0.9em;
+}
+ 
+.sheet-rolltemplate-pf_attack3 .inlinerollresult  {
+    background-color: transparent;
+    border: none;
+}
+ 
+.sheet-rolltemplate-pf_attack3 .inlinerollresult.fullcrit {
+	color: #3FB315;
+    border: none;
+}
+ 
+.sheet-rolltemplate-pf_attack3 .inlinerollresult.fullfail {
+	color: #B31515;
+    border: none;
+}
+ 
+.sheet-rolltemplate-pf_attack3 .inlinerollresult.importantroll {
+	color: #4A57ED;
+    border: none;
+}
+
+.sheet-rolltemplate-pf_check2 .sheet-header_background {
+    background:url(https://i.imgur.com/dEn7C06.png) no-repeat;
+    background-size: 100%;
+}
+
+.sheet-rolltemplate-pf_check2 .sheet-content_background {
+    background:url(https://i.imgur.com/5pNLmnK.png) repeat-y;
+    background-size: 100%;
+}
+
+.sheet-rolltemplate-pf_check2 .sheet-footer_background {
+    background:url(https://i.imgur.com/6wA8Xzq.png) no-repeat;
+    background-size: 100%;
+}
+
+.sheet-rolltemplate-pf_check2 .sheet-header {
+	color: white;
+    	padding: 2px 0px 2px 4px;
+	font-size: 1.3em;
+    font-weight: bold;
+	text-align: left;
+	font-family: "Verdana", Times, serif;
+    font-variant: small-caps;
+	letter-spacing: 1px;
+	border-color: #F15622;
+	border-style: solid;
+	border-width: 2px;
+	border-top-right-radius: 10px;
+    border-top-left-radius: 10px;
+    -webkit-text-stroke: 1px black;
+}
+
+.sheet-rolltemplate-pf_check2 .sheet-tcat {
+	font-weight: bold;
+	color: #FFCA06;
+	font-family: "Verdana", Times, serif;
+	transform: scale(.5, 5);
+}
+
+.sheet-rolltemplate-pf_check2 .sheet-content {
+    background-color: #000425;
+	padding: 7px 10px 9px 10px;
+	font-size: 0.9em;
+    text-align: left;
+    border-bottom-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+    border-style: ridge;
+    color: white;
+    border-color: #FFCA06;
+    margin-left: 5px;
+    margin-right: 5px;
+    margin-bottom: 5px;
+}
+
+.sheet-rolltemplate-pf-check2 .sheet-subheader {
+    color: #F15622;
+    	padding: 2px 10px 2px 10px;
+	font-size: 1em;
+	font-weight: bold;
+	text-align: left;
+	font-family: "Verdana", Times, serif;
+    font-variant: small-caps;
+	letter-spacing: 1px;
+}
+
+.sheet-rolltemplate-pf_check2 .sheet-footer {
+    color: #E0E0E0;
+	    padding: 25px 0px 15px 0px;
+	font-size: 0.5em;
+    text-align: center;
+}
+
+.sheet-rolltemplate-pf_check2 .inlinerollresult  {
+    	background-color: transparent;
+    	border: none;
+}
+
+.sheet-rolltemplate-pf_check2 .inlinerollresult.fullcrit {
+	color: #3FB315;
+    	border: none;
+}
+
+.sheet-rolltemplate-pf_check2 .inlinerollresult.fullfail {
+	color: #B31515;
+    	border: none;
+}
+
+.sheet-rolltemplate-pf_check2 .inlinerollresult.importantroll {
+	color: #4A57ED;
+    	border: none;
+}
+
+.sheet-rolltemplate-pf_custom .sheet-wrapper {
+  background: linear-gradient(#03778E, #00465C, #123352);
+  border-bottom-right-radius: 10px;
+  border-bottom-left-radius: 10px;
+  border-top-right-radius: 10px;
+  border-top-left-radius: 10px;
+}
+
+.sheet-rolltemplate-pf_custom .sheet-border {
+	border-left-style: outset; color: white;
+	border-right-style: outset; color: white;
+	border-bottom-style: outset; color: white;
+	border-width: 2px;
+    border-bottom-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+}
+
+.sheet-rolltemplate-pf_custom .sheet-header {
+	color: white;
+    	padding: 2px 0px 2px 4px;
+	font-size: 1.3em;
+    font-weight: bold;
+	text-align: left;
+	font-family: "Verdana", Times, serif;
+    font-variant: small-caps;
+	letter-spacing: 1px;
+	border-color: #F15622;
+	border-style: solid;
+	border-width: 2px;
+	border-top-right-radius: 10px;
+    border-top-left-radius: 10px;
+    -webkit-text-stroke: 1px black;
+}
+
+.sheet-rolltemplate-pf_custom .sheet-subheader {
+    color: #F15622;
+    	padding: 2px 10px 2px 10px;
+	font-size: 1em;
+	font-weight: bold;
+	text-align: left;
+	font-family: "Verdana", Times, serif;
+    font-variant: small-caps;
+	letter-spacing: 1px;
+}
+
+.sheet-rolltemplate-pf_custom .sheet-header_background {
+    background: url("https://i.imgur.com/sWUd0Jd.jpg");
+    border-color: #3466B0;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    border-style: outset; color: white;
+    border-width: 3px;
+    border-top-right-radius: 10px;
+    border-top-left-radius: 10px;
+    border-collapse: separate;
+}
+
+.sheet-rolltemplate-pf_custom .sheet-subheader_background {
+    background-color: transparent;
+	text-align: center;
+    border-color: #79BBDD;
+    border-style: solid;
+    border-width: 0px;
+    border-right-width: 4px;
+	background-size: contain;
+}
+
+.sheet-rolltemplate-pf_custom .sheet-tcat {
+	font-weight: bold;
+	color: #FFCA06;
+	font-family: "Verdana", Times, serif;
+	transform: scale(.5, 5);
+}
+
+.sheet-rolltemplate-pf_custom .sheet-content {
+	background-color: #000425;
+	padding: 7px 10px 9px 10px;
+	font-size: 0.9em;
+    text-justify: distribute;
+    border-bottom-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+    border-top-right-radius: 10px;
+    border-top-left-radius: 10px;
+    border-style: ridge;
+    color: white;
+    border-color: #FFCA06;
+    margin-left: 5px;
+    margin-right: 5px;
+    margin-bottom: 5px;
+}
+ 
+.sheet-rolltemplate-pf_custom .inlinerollresult  {
+    	background-color: transparent;
+    	border: none;
+}
+ 
+.sheet-rolltemplate-pf_custom .inlinerollresult.fullcrit {
+	color: #3FB315;
+    	border: none;
+}
+ 
+.sheet-rolltemplate-pf_custom .inlinerollresult.fullfail {
+	color: #B31515;
+    	border: none;
+}
+ 
+.sheet-rolltemplate-pf_custom .inlinerollresult.importantroll {
+	color: #4A57ED;
+    	border: none;
+}
