@@ -23,17 +23,22 @@
 <input type="radio" style="position: relative; margin-right: 20px; margin-left: 30px;" name="attr_tab" class="sheet-tab sheet-tab2" value="2" title="Artificial Intelligence" /><b>AI</b>
 <input type="radio" style="position: relative; margin-right: 20px; margin-left: 30px;" name="attr_tab" class="sheet-tab sheet-tab3" value="3" title="Starship" /><b>Starship</b>
 <input type="radio" style="position: relative; margin-right: 20px; margin-left: 30px;" name="attr_tab" class="sheet-tab sheet-tab4" value="4" title="NPC" /><b>NPC</b>
-
+<input type="radio" style="position: rarrelative; margin-right: 20px; margin-left: 30px;" name="attr_tab" class="sheet-tab sheet-tab5" value="5" title="Settings" /><b>Settings</b>
 <br>
 <br>
 
 <div class="sheet-tab-content sheet-tab1">
-    
-<span class="sheet-table-row-name"><button class="sheet-text-button" style="position: relative; margin-right: 14px; margin-left: 20px;" title="%{Ability-Checks}" type="roll" name="roll_Ability-Checks" value="/w @{character_name} &{template:pf_check} {{check=@{character_name}'s Ability Scores}} {{ability_list=[STR](~STR-Check)[DEX](~DEX-Check)[CON](~CON-Check)[INT](~INT-Check)[WIS](~WIS-Check)[CHA](~CHA-Check)}}">Ability Checks</button></span>
-<span class="sheet-table-row-name"><button class="sheet-text-button" style="position: relative; margin-right: 14px; margin-left: 20px;" title="%{Roll-for-initiative}" type="roll" name="roll_Roll-for-initiative" value="&{template:pf_check} {{name=@{character_name}'s }} {{check=Initiative Roll}} {{init=[[ ( 1d20 + [[ @{init} ]] [init] + [[ {(0.01 * [[ @{init} ]] ),0}kh1 ]] [tie-breaker] ) &{tracker} ]] }}">Initiative</button></span>
-<span class="sheet-table-row-name"><button class="sheet-text-button" style="position: relative; margin-right: 14px; margin-left: 20px;" title="%{Defenses}" type="roll" name="roll_Defenses" value="/w @{character_name} &{template:pf_check} {{check=@{character_name}'s Defenses}} {{eac=@{EAC}}} {{kac=@{KAC}}} {{cmac=@{CMAC}}} {{DR=@{DR}}} {{SR=@{SR}}} {{special_defenses=}} {{resistances=@{resistances}}} {{immunities=@{immunities}}} {{weaknesses=@{weaknesses}}} {{armor-notes=@{armor-notes}}} {{cmac-notes=@{cmac-notes}}} {{defense-notes=@{defense-notes}}}">Defenses</button></span>
-<span class="sheet-table-row-name"><button class="sheet-text-button" style="position: relative; margin-right: 14px; margin-left: 20px;" title="%{Saving-Throws}" type="roll" name="roll_Saving-Throws" value="/w @{character_name} &{template:pf_check} {{check=@{character_name}'s Saves}} {{save_list=[Fortitude](~Fort-Save)   [Reflex](~Ref-Save)   [Will](~Will-Save)}}">Saving Throws</button></span>
-<span class="sheet-table-row-name"><button class="sheet-text-button" style="position: relative; margin-right: 14px; margin-left: 20px;" title="%{Skill-Checks}" type="roll" name="roll_Skill-Checks" value="/w @{character_name} &{template:pf_check} {{check=@{character_name}'s Skills}} {{skill_list=[Acrobatics](~Acrobatics-Check)[Athletics](~Athletics-Check)[Bluff](~Bluff-Check)[Computers](~Computers-Check)[Culture](~Culture-Check)[Diplomacy](~Diplomacy-Check)[Disguise](~Disguise-Check)[Engineering](~Engineering-Check)[Intimidate](~Intimidate-Check)[Life Science](~Life-Science-Check)[Medicine](~Medicine-Check)[Mysticism](~Mysticism-Check)[Perception](~Perception-Check)[Physical Science](~Physical-Science-Check)[Piloting](~Piloting-Check)[Profession (@{Profession-name})](~Profession-Check)[Profession (@{Profession2-name})](~Profession2-Check)[Sense Motive](~Sense-Motive-Check)[Sleight of Hand](~Sleight-of-Hand-Check)[Stealth](~Stealth-Check)[Survival](~Survival-Check)}}">Skills</button></span>
+
+<div class="sheet-table">
+
+<span class="sheet-table-data-center"><button class="sheet-text-button" title="%{Ability-Checks}" type="roll" name="roll_Ability-Checks" value="/w @{character_name} &{template:pf_check} {{check=@{character_name}'s Ability Scores}} {{ability_list=[STR](~STR-Check)[DEX](~DEX-Check)[CON](~CON-Check)[INT](~INT-Check)[WIS](~WIS-Check)[CHA](~CHA-Check)}}">Ability Checks</button></span>
+<span class="sheet-table-data-center"><button class="sheet-text-button" title="%{Roll-for-initiative}" type="roll" name="roll_Roll-for-initiative" value="&{template:pf_check} {{name=@{character_name}'s }} {{check=Initiative Roll}} {{init=[[ ( 1d20 + [[ @{init} ]] [init] + [[ {(0.01 * [[ @{init} ]] ),0}kh1 ]] [tie-breaker] ) &{tracker} ]] }}">Initiative</button></span>
+<span class="sheet-table-data-center"><button class="sheet-text-button" title="%{Attacks}" type="roll" name="roll_Attacks" value="@{PC-API-attack-buttons}">Attacks</button></span>
+<span class="sheet-table-data-center"><button class="sheet-text-button" title="%{Defenses}" type="roll" name="roll_Defenses" value="/w @{character_name} &{template:pf_check} {{check=@{character_name}'s Defenses}} {{eac=@{EAC}}} {{kac=@{KAC}}} {{cmac=@{CMAC}}} {{DR=@{DR}}} {{SR=@{SR}}} {{special_defenses=}} {{resistances=@{resistances}}} {{immunities=@{immunities}}} {{weaknesses=@{weaknesses}}} {{armor-notes=@{armor-notes}}} {{cmac-notes=@{cmac-notes}}} {{defense-notes=@{defense-notes}}}">Defenses</button></span>
+<span class="sheet-table-data-center"><button class="sheet-text-button" title="%{Saving-Throws}" type="roll" name="roll_Saving-Throws" value="/w @{character_name} &{template:pf_check} {{check=@{character_name}'s Saves}} {{save_list=[Fortitude](~Fort-Save)   [Reflex](~Ref-Save)   [Will](~Will-Save)}}">Saving Throws</button></span>
+<span class="sheet-table-data-center"><button class="sheet-text-button" title="%{Skill-Checks}" type="roll" name="roll_Skill-Checks" value="/w @{character_name} &{template:pf_check} {{check=@{character_name}'s Skills}} {{skill_list=[Acrobatics](~Acrobatics-Check)[Athletics](~Athletics-Check)[Bluff](~Bluff-Check)[Computers](~Computers-Check)[Culture](~Culture-Check)[Diplomacy](~Diplomacy-Check)[Disguise](~Disguise-Check)[Engineering](~Engineering-Check)[Intimidate](~Intimidate-Check)[Life Science](~Life-Science-Check)[Medicine](~Medicine-Check)[Mysticism](~Mysticism-Check)[Perception](~Perception-Check)[Physical Science](~Physical-Science-Check)[Piloting](~Piloting-Check)[Profession (@{Profession-name})](~Profession-Check)[Profession (@{Profession2-name})](~Profession2-Check)[Sense Motive](~Sense-Motive-Check)[Sleight of Hand](~Sleight-of-Hand-Check)[Stealth](~Stealth-Check)[Survival](~Survival-Check)}}">Skills</button></span>
+
+</div>
 
 <br>
 <div class="sheet-tab" style="color: white; position: relative; top: -4px; left: 17px;" ><b>Core</b></div>
@@ -428,7 +433,7 @@
 						<div class="sheet-table-row">
 						<span class="sheet-table-data-center"><input type="number" title="@{RP}" name="attr_RP" value="0" ></span>
 						<span class="sheet-table-data-center" style="vertical-align:middle;font-size:150%;"><b>/</b></span>
-						<span class="sheet-table-data-center"><input title="@{RP|max}" style="background-color:#c5d1de;" type="number" name="attr_RP_max" value="(1 + @{calc-rp-EQ} + @{calc-misc-rp} + @{key-ability} + floor(@{level} / 2))" disabled></span>
+						<span class="sheet-table-data-center"><input title="@{RP|max}" style="background-color:#c5d1de;" type="number" name="attr_RP_max" value="(@{calc-base-rp} + @{calc-rp-EQ} + @{calc-misc-rp} + @{key-ability} + floor(@{level} / 2))" disabled></span>
 				 	</div>
 				</div>
 		    </div>
@@ -496,7 +501,7 @@
 						<span class="sheet-table-header" style="background-color:#D3D3D3;" ></span>
 						<span class="sheet-table-header" style="background-color:#D3D3D3;" ><i>Half Lvl</i></span>
 						<span class="sheet-table-header" style="background-color:#D3D3D3;" ></span>
-						<span class="sheet-table-header" style="background-color:#D3D3D3;" ><i>Base RP</i></span>
+						<span class="sheet-table-header" style="background-color:#D3D3D3;" ><i>Min RP</i></span>
 						<span class="sheet-table-header" style="background-color:#D3D3D3;" ></span>
 						<span class="sheet-table-header" style="background-color:#D3D3D3;" ><i>Misc</i></span>
 						<span class="sheet-table-header" style="background-color:#D3D3D3;" ></span>
@@ -508,7 +513,7 @@
 					    <span class="sheet-table-data-center" style="vertical-align:middle;font-size:150%;"><b>+</b></span>
 					    <span class="sheet-table-data-center"><input type="number" style="background-color:#c5d1de;" title="@{calc-half-level}" name="attr_calc-half-level" value="(floor(@{level} / 2))" disabled></span>
 					    <span class="sheet-table-data-center" style="vertical-align:middle;font-size:150%;"><b>+</b></span>
-					    <span class="sheet-table-data-center"><input type="number" style="background-color:#c5d1de;" title="@{calc-base-rp}" name="attr_calc-base-rp" value="1" disabled></span>
+					    <span class="sheet-table-data-center"><input type="number" style="background-color:#c5d1de;" title="@{calc-base-rp}" name="attr_calc-base-rp" value="(floor(1/@{level}))" disabled></span>
 					    <span class="sheet-table-data-center" style="vertical-align:middle;font-size:150%;"><b>+</b></span>
 					    <span class="sheet-table-data-center"><input type="number" title="@{calc-misc-rp}" name="attr_calc-misc-rp" value="0" ></span>
 					    <span class="sheet-table-data-center" style="vertical-align:middle;font-size:150%;"><b>+</b></span>
@@ -961,33 +966,25 @@
 <b>Special Defenses and Notes &#9660;</b>
 	        <input type="checkbox" class="sheet-pc-special-defenses-show" title="pc-special-defenses-show" name="attr_pc-special-defenses-show" value="1" style="opacity:0;width: 16px;height: 16px;position: relative;top: 1px;left: -7px;margin: -10px;cursor: pointer;z-index: 1;" checked/><span></span>
 	        <div class="sheet-table sheet-pc-special-defenses">
-		    <div class="sheet-table">
-			<div class="sheet-table-data-center" style="vertical-align:top;">
-				<span class="sheet-table-name" style="color: white; background-color:black;" >Special Defenses and Notes</span>
-					</div>
-					<div class="sheet-table-row">
-			            <span class="sheet-table-header" style="color: white; background-color:#20537E;" >Defense Notes</span>
-		             </div>
-		        </div>
-		    <div class="sheet-table">
-			<div class="sheet-table-data-center">	
-		        <span class="sheet-table-name" style="color: black; background-color:#D3D3D3;" ><i>Armor Notes</i></span>	
-		    <textarea class="sheet-armor-notes" title="armor-notes" rows="4" name="attr_armor-notes" placeholder="Put notes about context-sensitive AC bonuses here." ></textarea>
+		    <span class="sheet-table-name" style="background-color:black;" >Special Defenses and Notes</span>
+			<div class="sheet-table-row">
+			    <span class="sheet-table-header" style="color: white; background-color:#20537E;" >Defense Notes</span>
 		    </div>
-		    <div class="sheet-table">
-			<div class="sheet-table-data-center">	
-		        <span class="sheet-table-name" style="color: black; background-color:#D3D3D3;" ><i>CMAC Notes</i></span>	
-            <textarea class="sheet-armor-notes" title="cmac-notes" rows="4" name="attr_cmac-notes" placeholder="Put notes about context-sensitive CMAC bonuses here." ></textarea>
-            </div>
-            <div class="sheet-table">
-			<div class="sheet-table-data-center">	
-		        <span class="sheet-table-name" style="color: black; background-color:#D3D3D3;" ><i>Defense Notes</i></span>            
-            <textarea class="sheet-armor-notes" title="defense-notes" rows="4" style="width: 96%;" name="attr_defense-notes" placeholder="Put notes about context-sensitive defense bonuses here." ></textarea>
-            </div>
-              </div>
-                </div>
-                  </div>
-                    <div class="sheet-table-row">
+		    <div class="textAreaColumn">
+        <div>
+            <span class="sheet-table-header" style="background-color:#D3D3D3;" ><i>Armor Notes</i></span>
+            <textarea class="sheet-defense-notes" title="armor-notes" rows="4" name="attr_armor-notes" placeholder="Put notes about context-sensitive AC bonuses here." ></textarea>
+        </div>
+        <div>
+            <span class="sheet-table-header" style="background-color:#D3D3D3;" ><i>CMAC Notes</i></span>
+            <textarea class="sheet-defense-notes" title="cmac-notes" rows="4" name="attr_cmac-notes" placeholder="Put notes about context-sensitive CMAC bonuses here." ></textarea>
+        </div>
+        <div>
+            <span class="sheet-table-header" style="background-color:#D3D3D3;" ><i>Defense Notes</i></span>
+            <textarea class="sheet-defense-notes" title="defense-notes" rows="4" name="attr_defense-notes" placeholder="Put notes about context-sensitive defense bonuses here." ></textarea>
+        </div>
+        </div>
+		 <div class="sheet-table-row">
             <div class="sheet-table-data-center">
             <div class="sheet-table">
 				<span class="sheet-table-name">Special Defenses</span>
@@ -1251,36 +1248,32 @@
 			</div>
 			</div>
 			</div>
-			    <div class="sheet-table">
-			<div class="sheet-table-data-center" >	
-		        <span class="sheet-table-name" style="color: black; background-color:#D3D3D3;" ><i>Melee Attack Notes</i></span>	
-		    <textarea class="sheet-melee-attack-notes"title="melee-attack-notes" rows="4" name="attr_melee-attack-notes" placeholder="Put notes about context-sensitive Melee Attack bonuses here." ></textarea>
-		    </div>
-		    <div class="sheet-table">
-			<div class="sheet-table-data-center" >	
-		        <span class="sheet-table-name" style="color: black; background-color:#D3D3D3;" ><i>Ranged Attack Notes</i></span>	
-            <textarea class="sheet-ranged-attack-notes" title="ranged-attack-notes" rows="4" name="attr_ranged-attack-notes" placeholder="Put notes about context-sensitive Ranged Attack bonuses here." ></textarea>
-            </div>
-		    <div class="sheet-table">
-			<div class="sheet-table-data-center" >	
-		        <span class="sheet-table-name" style="color: black; background-color:#D3D3D3;" ><i>Thrown Attack Notes</i></span>	
-            <textarea class="sheet-thrown-attack-notes" title="thrown-attack-notes" rows="4" name="attr_thrown-attack-notes" placeholder="Put notes about context-sensitive Thrown Attack bonuses here." ></textarea>
-            </div>
-            <div class="sheet-table">
-			<div class="sheet-table-data-center" >	
-		        <span class="sheet-table-name" style="color: black; background-color:#D3D3D3;" ><i>CMB Notes</i></span>            
-            <textarea class="sheet-CMB-notes" title="CMB-notes" rows="4" name="attr_CMB-notes" placeholder="Put notes about context-sensitive CMB bonuses here." ></textarea>
-		</div>
-	        <div class="sheet-table">
-			<div class="sheet-table-data-center" >	
-		        <span class="sheet-table-name" style="color: black; background-color:#D3D3D3;" ><i>Attack Notes</i></span>            
-            <textarea class="sheet-attack-notes" title="attack-notes" rows="4" style="width: 95%;" name="attr_attack-notes" placeholder="Put notes about context-sensitive Attack bonuses here." ></textarea>
-		    </div>
-	      </div>
+
+<div class="textAreaColumn-2">
+        <div>
+            <span class="sheet-table-header" style="background-color:#D3D3D3;" ><i>Melee Attack Notes</i></span>
+            <textarea class="sheet-defense-notes" title="@{melee-attack-notes}-notes" rows="4" name="attr_melee-attack-notes" placeholder="Put notes about context-sensitive AC bonuses here." ></textarea>
         </div>
-      </div>
-    </div>
-  </div>
+        <div>
+            <span class="sheet-table-header" style="background-color:#D3D3D3;" ><i>Ranged Attack Notes</i></span>
+            <textarea class="sheet-defense-notes" title="@{ranged-attack-notes}" rows="4" name="attr_ranged-attack-notes" placeholder="Put notes about context-sensitive CMAC bonuses here." ></textarea>
+        </div>
+        <div>
+            <span class="sheet-table-header" style="background-color:#D3D3D3;" ><i>Thrown Attack Notes</i></span>
+            <textarea class="sheet-defense-notes" title="@{thrown-attack-notes}" rows="4" name="attr_thrown-attack-notes" placeholder="Put notes about context-sensitive defense bonuses here." ></textarea>
+        </div>
+        <div>
+            <span class="sheet-table-header" style="background-color:#D3D3D3;" ><i>CMB Notes</i></span>
+            <textarea class="sheet-defense-notes" title="@{CMB-notes}" rows="4" name="attr_CMB-notes" placeholder="Put notes about context-sensitive defense bonuses here." ></textarea>
+        </div>
+        <div>
+            <span class="sheet-table-header" style="background-color:#D3D3D3;" ><i>Attack Notes</i></span>
+            <textarea class="sheet-defense-notes" title="@{attack-notes}" rows="4" name="attr_attack-notes" placeholder="Put notes about context-sensitive defense bonuses here." ></textarea>
+        </div>
+        
+        
+        </div>
+			    
 </div>
 </div>
 <br>
@@ -3852,7 +3845,9 @@
 							</select>
 					   <span class="sheet-table-data-center"><input title="@{slot-2-description}" type="text" name="attr_slot-2-description"></span>	
 					  </div>
-					</div>  
+					</div>
+		<br>			
+		<div class="sheet-table">			
 			<span class="sheet-table-name">Equipment List</span>
 			 <fieldset class="repeating_item">
 			 	<div class="sheet-table">
@@ -3881,6 +3876,7 @@
 			</fieldset>
 		</div>
 	</div>
+</div>	
 <div class="sheet-tab-content sheet-pctab8">	
 <div class="sheet-table">  
 <span class="sheet-table-name" style="background-color: #112b42;" >Notes</span> 
@@ -3900,6 +3896,7 @@
 </div>
 <div class="sheet-tab-content sheet-tab2">
 <span class="sheet-table-row-name"><button class="sheet-text-button" title="Drone-Ability-Checks" type="roll" name="roll_Drone-Ability-Checks" value="/w @{character_name} &{template:pf_check} {{check=@{drone_name}'s Ability Scores}} {{ability_list=[STR](~drone-STR-Check)[DEX](~drone-DEX-Check)[CON](~drone-CON-Check)[INT](~INT-Check)[WIS](~drone-WIS-Check)[CHA](~drone-CHA-Check)}}">Drone Ability Checks</button></span>
+<span class="sheet-table-row-name"><button class="sheet-text-button" title="Drone-Attacks" type="roll" name="roll_Drone-Attacks" value="@{drone-API-attack-buttons}">Drone Attacks</button></span>
 <span class="sheet-table-row-name"><button class="sheet-text-button" title="Drone-Saving-Throws" type="roll" name="roll_Drone-Saving-Throws" value="/w @{character_name} &{template:pf_check} {{check=@{drone_name}'s Saves}} {{save_list=[Fort](~drone-Fort-Save)[Ref](~drone-Ref-Save)[Will](~drone-Will-Save)}}">Drone Saving Throws</button></span>
 <span class="sheet-table-row-name"><button class="sheet-text-button" title="Drone-Skill-Checks" type="roll" name="roll_Drone-Skill-Checks" value="/w @{character_name} &{template:pf_check} {{check=@{drone_name}'s Skills}} {{skill_list=[Acrobatics](~drone-Acrobatics-Check)[Athletics](~drone-Athletics-Check)[Computers](~drone-Computers-Check)[Engineering](~drone-Engineering-Check)[Perception](~drone-Perception-Check)[Stealth](~drone-Stealth-Check)}}">Drone Skill Checks</button></span>
     
@@ -4645,6 +4642,7 @@
 
 <div class="sheet-tab-content sheet-tab3">
 
+<span class="sheet-table-row-name"><button class="sheet-text-button" style="position: relative; margin-right: 14px; margin-left: 20px;" title="%{Ship_Weapons}" type="roll" name="roll_Ship_Weapons" value="@{ship-API-ship-weapons-buttons}">Starship Weapons</button></span>
 <span class="sheet-table-row-name"><button class="sheet-text-button" style="position: relative; margin-right: 14px; margin-left: 20px;" title="%{Ship_Stats}" type="roll" name="roll_Ship_Stats"  value="/w @{character_name} &{template:pf_custom} {{name=@{starship-name} Statistics}} {{Starship Details=
 **Tier:** [[@{starship-tier}]]; **AC:** [[10 + [Pilot Ranks] @{starship-ac-pilot} + [Armor] @{starship-ac-armor} + [Size] @{starship-ac-size} + [Misc] @{starship-ac-misc}]]; **TL:** [[10 + [Pilot Ranks] @{starship-tl-pilot} + [Armor] @{starship-tl-countermeasures} + [Size] @{starship-tl-size} + [Misc] @{starship-tl-misc}]]
 
@@ -4712,7 +4710,7 @@
 		            <span class="sheet-table-data-center" style="font-weight:bold;">= 10 +</span>
 		            <span class="sheet-table-data-center"><input type="number" title="starship-ac-pilot" name="attr_starship-ac-pilot" value="0"></span>
 		            <span class="sheet-table-data-center"><input type="number" title="starship-ac-armor" name="attr_starship-ac-armor" value="0"></span>
-		            <span class="sheet-table-data-center"><input type="number" title="starship-ac-size" name="attr_starship-ac-size" value="@{starship-size}" disabled></span>
+		            <span class="sheet-table-data-center"><input type="number" title="starship-ac-size" style="background-color:#c5d1de;" name="attr_starship-ac-size" value="@{starship-size}" disabled></span>
 		            <span class="sheet-table-data-center"><input type="number" title="starship-ac-misc" name="attr_starship-ac-misc" value="0"></span>
 		        </div>
 		        <div class="sheet-table">
@@ -4734,7 +4732,7 @@
 		                <span class="sheet-table-data-center" style="font-weight:bold;">= 10 +</span>
 		                <span class="sheet-table-data-center"><input type="number" title="starship-tl-pilot" name="attr_starship-tl-pilot" value="0"></span>
     		            <span class="sheet-table-data-center"><input type="number" title="starship-tl-countermeasures" name="attr_starship-tl-countermeasures" value="0"></span>
-	    	            <span class="sheet-table-data-center"><input type="number" title="starship-tl-size" name="attr_starship-tl-size" value="@{starship-size}" disabled></span>
+	    	            <span class="sheet-table-data-center"><input type="number" style="background-color:#c5d1de;" title="starship-tl-size" name="attr_starship-tl-size" value="@{starship-size}" disabled></span>
 		                <span class="sheet-table-data-center"><input type="number" title="starship-tl-misc" name="attr_starship-tl-misc" value="0"></span>
 		            </div>
 		        </div>
@@ -4795,7 +4793,7 @@
 		                <span class="sheet-table-data-center"><input type="text" title="starship-speed" name="attr_starship-speed"></span>
 		                <span class="sheet-table-header"></span>
 		                <span class="sheet-table-data-center"><input type="number" title="starship-damage-threshold" name="attr_starship-damage-threshold"></span>
-		                <span class="sheet-table-data-center"><input type="number" title="starship-critical-threshold" name="attr_starship-critical-threshold"></span>
+		                <span class="sheet-table-data-center"><input type="number" style="background-color:#c5d1de;" title="starship-critical-threshold" name="attr_starship-critical-threshold" value="(floor(@{starship-hp|max} / 5))" disabled></span>
 		            </div>
 		        </div>
 		        <div class="sheet-table">
@@ -5435,7 +5433,7 @@ You can *Encourage* another member of the crew to give them a bonus to their act
                 </div>
                 <div class="sheet-table-row">
                 <textarea class="sheet-macro" title="@{taunt-macro-text}" style="display:none;" name="attr_taunt-macro-text" >&{template:pf_custom} {{name=@{character_name}'s Taunt Action}} {{Check Result=?{Select a Skill Bonus to Taunt with|Bluff,**Bluff:** [[1d20 + [Bluff] @{Bluff}]] vs. '@{target|Select an Enemy Starship to target.|token_name}'|Intimidate,**Intimidate:** [[1d20 + [Intimidate] @{Intimidate}]] vs. "@{target|Select an Enemy Starship to target.|token_name}"}}} {{Description=(Any Phase, Push)
-You select an *Enemy Vessel* and a *Phase* of combat (*Engineering*, *Helm*, or *Gunnery*), and then attempt a **DC**[[[[15 + floor(1.5 * [Starship Tier] @{target|Select an Enemy Starship to target.|starship-tier})]]]] *Bluff* or *Intimidate Check*. If you are successful, each *Enemy Character* acting during the selected *Phase* takes a **–2 penalty** to all *Checks* for [[1d4]] round(s); the penalty increases to **–4** if the *Enemy’s Check* is made as part of a *Push Action*. Once used against an *Enemy Starship*, regardless of the outcome, *Taunt* can’t be used against that *Starship* again during the same combat.}}</textarea>    
+You select an *Enemy Vessel* and a *Phase* of combat (*Engineering*, *Helm*, or *Gunnery*), and then attempt a **DC**[[[[15 + floor(1.5 * [Starship Tier] @{target|Select an Enemy Starship to target.|starship-tier})]]]] *Bluff* or *Intimidate Check*. If you are successful, each *Enemy Character* acting during the selected *Phase* takes a **–2 penalty** to all *Checks* for [[1d4]] round(s); the penalty increases to **–4** if the *Enemy’s Check* is made as part of a *Push Action*. Once used against an *Enemy Starship*, regardless of the outcome, *Taunt* can’t be used against that *Starship* again during the same combat.</textarea>    
                 </div>
                 <div class="sheet-table-row">
                 <span class="sheet-table-data-left" style="width:5%;"><button style="font-size:100%;" title="%{Orders-Roll}" type="roll" name="roll_Orders-Roll" value="@{orders-macro-text}"></button></span>
@@ -6391,9 +6389,34 @@ If you have at least **12 ranks** in *Computers*, you can try to foil *Enemy* ta
 	    </div>	
 	</div>
 </div>
-<div class="sheet-community-use" style=" text-size: 6px; text-align: center; margin-left: 10%; margin-right: 10%">This character sheet uses trademarks and/or copyrights owned by Paizo Inc., which are used under Paizo's Community Use Policy. We are expressly prohibited from charging you to use or access this content. This character sheet is not published, endorsed, or specifically approved by Paizo Inc. For more information about Paizo's Community Use Policy, please visit paizo.com/communityuse. For more information about Paizo Inc. and Paizo products, please visit paizo.com.</div>
+<div class="sheet-tab-content sheet-tab5">
+<b>API Macros &#9660;</b>
+	<input type="checkbox" class="sheet-settings-show" title="@{character-settings-show}" name="attr_settings-show" value="1" style="opacity:0;width: 16px;height: 16px;position: relative;top: 1px;left: -7px;margin: -10px;cursor: pointer;z-index: 1;" checked/><span></span>
+	<div class="sheet-settings">
+		<div class="sheet-table">  
+			<span class="sheet-table-name">API Macros</span> 
+		<div>
+			<div class="sheet-table">
+			<span class="sheet-table-name" style="background-color:black;">PC API Macros</span> 
+			</div>
+				<span class="sheet-table-data-center-2" style="width:17%;"><input title="@{PC-API-attack-buttons}" type="text" name="attr_PC-API-attack-buttons" value="/w @{character_name} &{template:pf_check} {{check=@{character_name}'s Attacks}} {{attack_list=[@{repeating_weapon_$0_name}](~repeating_weapon_$0_roll)}}"/></span>
+			<br>
+			<div class="sheet-table">
+			<span class="sheet-table-name" style="background-color:black;">Drone API Macros</span> 
+			</div>
+				<span class="sheet-table-data-center-2" style="width:17%;"><input title="@{drone-API-attack-buttons}" type="text" name="attr_drone-API-attack-buttons" value="/w @{character_name} &{template:pf_check} {{check=@{drone_name}'s Attacks}} {{attack_list=[@{repeating_drone-weapon_$0_drone-weapon-name}](~repeating_drone-weapon_$0_roll)}}"/></span>
+            <br>
+            <div class="sheet-table">
+			<span class="sheet-table-name" style="background-color:black;">Starship API Macros</span> 
+			</div>
+			    <span class="sheet-table-data-center-2" style="width:17%;"><input title="@{ship-API-ship-weapons-buttons}" type="text" name="attr_ship-API-ship-weapons-buttons" value="/w @{character_name} &{template:pf_check} {{check=@{starship-name}'s Weapons}} {{forward=[@{repeating_fwd-weapon_$0_name}](~repeating_fwd-weapon_$0_roll)}} {{port=[@{repeating_port-weapon_$0_name}](~repeating_port-weapon_$0_roll)}} {{starboard=[@{repeating_starboard-weapon_$0_name}](~repeating_starboard-weapon_$0_roll)}} {{aft=[@{repeating_aft-weapon_$0_name}](~repeating_aft-weapon_$0_roll)}} {{turret=[@{repeating_turret-weapon_$0_name}](~repeating_turret-weapon_$0_roll)}}"/></span>
+			<br>
+            
+</div>
 <br>
-<div class="sheet-authors" style=" text-size: 3px; text-align: center; margin-left: 5%; margin-right: 5%">Created by Marek Lavigne. Modeled after the 'Pathfinder Neceros' character sheet created by Samuel Marino, Nibrodooh, Vince, Samuel Terrazas, chris-b, Magik, and James W, as well as the 'Starfinder Simple' sheet by Phillip Goettsch.</div>   
+<div>
+Created by Marek Lavigne. Modeled after the 'Pathfinder Neceros' character sheet created by Samuel Marino, Nibrodooh, Vince, Samuel Terrazas, chris-b, Magik, and James W, as well as the 'Starfinder Simple' sheet by Phillip Goettsch.    
+</div>
 <rolltemplate class="sheet-rolltemplate-pf_check">
     <div class="sheet-wrapper">
         <div class="sheet-header_background"><div class="sheet-header">{{name}}{{check}}</div></div>
