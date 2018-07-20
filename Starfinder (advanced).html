@@ -33,7 +33,6 @@
 
 <span class="sheet-table-data-center"><button class="sheet-text-button" title="%{Ability-Checks}" type="roll" name="roll_Ability-Checks" value="/w @{character_name} &{template:pf_check} {{check=@{character_name}'s Ability Scores}} {{ability_list=[STR](~STR-Check)[DEX](~DEX-Check)[CON](~CON-Check)[INT](~INT-Check)[WIS](~WIS-Check)[CHA](~CHA-Check)}}">Ability Checks</button></span>
 <span class="sheet-table-data-center"><button class="sheet-text-button" title="%{Roll-for-initiative}" type="roll" name="roll_Roll-for-initiative" value="&{template:pf_check} {{name=@{character_name}'s }} {{check=Initiative Roll}} {{init=[[ ( 1d20 + [[ @{init} ]] [init] + [[ {(0.01 * [[ @{init} ]] ),0}kh1 ]] [tie-breaker] ) &{tracker} ]] }}">Initiative</button></span>
-<span class="sheet-table-data-center"><button class="sheet-text-button" title="%{Attacks}" type="roll" name="roll_Attacks" value="@{PC-API-attack-buttons}">Attacks</button></span>
 <span class="sheet-table-data-center"><button class="sheet-text-button" title="%{Defenses}" type="roll" name="roll_Defenses" value="/w @{character_name} &{template:pf_check} {{check=@{character_name}'s Defenses}} {{eac=@{EAC}}} {{kac=@{KAC}}} {{cmac=@{CMAC}}} {{DR=@{DR}}} {{SR=@{SR}}} {{special_defenses=}} {{resistances=@{resistances}}} {{immunities=@{immunities}}} {{weaknesses=@{weaknesses}}} {{armor-notes=@{armor-notes}}} {{cmac-notes=@{cmac-notes}}} {{defense-notes=@{defense-notes}}}">Defenses</button></span>
 <span class="sheet-table-data-center"><button class="sheet-text-button" title="%{Saving-Throws}" type="roll" name="roll_Saving-Throws" value="/w @{character_name} &{template:pf_check} {{check=@{character_name}'s Saves}} {{save_list=[Fortitude](~Fort-Save)   [Reflex](~Ref-Save)   [Will](~Will-Save)}}">Saving Throws</button></span>
 <span class="sheet-table-data-center"><button class="sheet-text-button" title="%{Skill-Checks}" type="roll" name="roll_Skill-Checks" value="/w @{character_name} &{template:pf_check} {{check=@{character_name}'s Skills}} {{skill_list=[Acrobatics](~Acrobatics-Check)[Athletics](~Athletics-Check)[Bluff](~Bluff-Check)[Computers](~Computers-Check)[Culture](~Culture-Check)[Diplomacy](~Diplomacy-Check)[Disguise](~Disguise-Check)[Engineering](~Engineering-Check)[Intimidate](~Intimidate-Check)[Life Science](~Life-Science-Check)[Medicine](~Medicine-Check)[Mysticism](~Mysticism-Check)[Perception](~Perception-Check)[Physical Science](~Physical-Science-Check)[Piloting](~Piloting-Check)[Profession (@{Profession-name})](~Profession-Check)[Profession (@{Profession2-name})](~Profession2-Check)[Sense Motive](~Sense-Motive-Check)[Sleight of Hand](~Sleight-of-Hand-Check)[Stealth](~Stealth-Check)[Survival](~Survival-Check)}}">Skills</button></span>
@@ -3896,7 +3895,6 @@
 </div>
 <div class="sheet-tab-content sheet-tab2">
 <span class="sheet-table-row-name"><button class="sheet-text-button" title="Drone-Ability-Checks" type="roll" name="roll_Drone-Ability-Checks" value="/w @{character_name} &{template:pf_check} {{check=@{drone_name}'s Ability Scores}} {{ability_list=[STR](~drone-STR-Check)[DEX](~drone-DEX-Check)[CON](~drone-CON-Check)[INT](~INT-Check)[WIS](~drone-WIS-Check)[CHA](~drone-CHA-Check)}}">Drone Ability Checks</button></span>
-<span class="sheet-table-row-name"><button class="sheet-text-button" title="Drone-Attacks" type="roll" name="roll_Drone-Attacks" value="@{drone-API-attack-buttons}">Drone Attacks</button></span>
 <span class="sheet-table-row-name"><button class="sheet-text-button" title="Drone-Saving-Throws" type="roll" name="roll_Drone-Saving-Throws" value="/w @{character_name} &{template:pf_check} {{check=@{drone_name}'s Saves}} {{save_list=[Fort](~drone-Fort-Save)[Ref](~drone-Ref-Save)[Will](~drone-Will-Save)}}">Drone Saving Throws</button></span>
 <span class="sheet-table-row-name"><button class="sheet-text-button" title="Drone-Skill-Checks" type="roll" name="roll_Drone-Skill-Checks" value="/w @{character_name} &{template:pf_check} {{check=@{drone_name}'s Skills}} {{skill_list=[Acrobatics](~drone-Acrobatics-Check)[Athletics](~drone-Athletics-Check)[Computers](~drone-Computers-Check)[Engineering](~drone-Engineering-Check)[Perception](~drone-Perception-Check)[Stealth](~drone-Stealth-Check)}}">Drone Skill Checks</button></span>
     
@@ -4642,7 +4640,6 @@
 
 <div class="sheet-tab-content sheet-tab3">
 
-<span class="sheet-table-row-name"><button class="sheet-text-button" style="position: relative; margin-right: 14px; margin-left: 20px;" title="%{Ship_Weapons}" type="roll" name="roll_Ship_Weapons" value="@{ship-API-ship-weapons-buttons}">Starship Weapons</button></span>
 <span class="sheet-table-row-name"><button class="sheet-text-button" style="position: relative; margin-right: 14px; margin-left: 20px;" title="%{Ship_Stats}" type="roll" name="roll_Ship_Stats"  value="/w @{character_name} &{template:pf_custom} {{name=@{starship-name} Statistics}} {{Starship Details=
 **Tier:** [[@{starship-tier}]]; **AC:** [[10 + [Pilot Ranks] @{starship-ac-pilot} + [Armor] @{starship-ac-armor} + [Size] @{starship-ac-size} + [Misc] @{starship-ac-misc}]]; **TL:** [[10 + [Pilot Ranks] @{starship-tl-pilot} + [Armor] @{starship-tl-countermeasures} + [Size] @{starship-tl-size} + [Misc] @{starship-tl-misc}]]
 
@@ -5882,7 +5879,6 @@ If you have at least **12 ranks** in *Computers*, you can try to foil *Enemy* ta
 <br>
 <div class="sheet-tab-content sheet-tab4">
 <span class="sheet-table-row-name"><button class="sheet-text-button" title="%{NPC-Ability-Checks}" type="roll" name="roll_NPC-Ability-Checks" value="/w @{character_name} &{template:pf_check} {{check=@{character_name}'s Ability Scores}} {{ability_list=[STR](~NPC-STR-Check)[DEX](~NPC-DEX-Check)[CON](~NPC-CON-Check)[INT](~NPC-INT-Check)[WIS](~NPC-WIS-Check)[CHA](~NPC-CHA-Check)}}">NPC Ability Checks</button></span>
-<span class="sheet-table-row-name"><button class="sheet-text-button" title="%{NPC-Attacks}" type="roll" name="NPC-roll_Attacks" value="@{NPC-API-attack-buttons}">NPC Attacks</button></span>
 <span class="sheet-table-row-name"><button class="sheet-text-button" title="%{NPC-Saves}" type="roll" name="NPC-roll_Saves" value="/w @{character_name} &{template:pf_check} {{check=@{character_name}'s Saves}} {{save_list=[Fort](~NPC-Fort-Save)[Ref](~NPC-Ref-Save)[Will](~NPC-Will-Save)}}">NPC Saving Throws</button></span>
 <span class="sheet-table-row-name"><button class="sheet-text-button" title="%{NPC-Skill-Checks}" type="roll" name="NPC-roll_Skill-Checks" value="/w @{character_name} &{template:pf_check} {{check=@{character_name}'s Skills}} {{skill_list=[Acrobatics](~NPC-Acrobatics-Check)[Athletics](~NPC-Athletics-Check)[Bluff](~NPC-Bluff-Check)[Computers](~NPC-Computers-Check)[Culture](~NPC-Culture-Check)[Diplomacy](~NPC-Diplomacy-Check)[Disguise](~NPC-Disguise-Check)[Engineering](~NPC-Engineering-Check)[Intimidate](~NPC-Intimidate-Check)[Life Science](~NPC-Life-Science-Check)[Medicine](~NPC-Medicine-Check)[Mysticism](~NPC-Mysticism-Check)[Perception](~NPC-Perception-Check)[Physical Science](~NPC-Physical-Science-Check)[Piloting](~NPC-Piloting-Check)[(@{misc-0})](~NPC-misc-0-Check)[(@{misc-1})](~NPC-misc-1-Check)[Sense Motive](~NPC-Sense-Motive-Check)[Sleight of Hand](~NPC-Sleight-of-Hand-Check)[Stealth](~NPC-Stealth-Check)[Survival](~NPC-Survival-Check)}}">NPC Skill Checks</button></span>
 	
@@ -6389,6 +6385,19 @@ If you have at least **12 ranks** in *Computers*, you can try to foil *Enemy* ta
 	    </div>	
 	</div>
 </div>
+
+<div>
+<span class="sheet-table-data-center" >This character sheet uses trademarks and/or copyrights owned by Paizo Inc., which are under Paizo's
+Community Use Policy. We are expressly prohibited from charging you to use or access this content. This
+character sheet is not published, endorsed, or specifically approved by Paizo Inc. For more information about
+Paizo's Community Use Policy, please visit paizo.com/communityuse. For more information about Paizo Inc. and
+Paizo's products, please visit paizo.com.</span>    
+</div>
+<br>
+<div>
+<span class="sheet-table-data-center" >Created by Marek Lavigne. Styled after the 'Pathfinder Neceros' character sheet created by Samuel Marino, Nibrodooh, Vince, Samuel Terrazas, chris-b, Magik, and James W, as well as parts of the 'Starfinder Simple' sheet by Phillip Goettsch.</span>    
+</div>
+
 <div class="sheet-tab-content sheet-tab5">
 <b>API Macros &#9660;</b>
 	<input type="checkbox" class="sheet-settings-show" title="@{character-settings-show}" name="attr_settings-show" value="1" style="opacity:0;width: 16px;height: 16px;position: relative;top: 1px;left: -7px;margin: -10px;cursor: pointer;z-index: 1;" checked/><span></span>
@@ -6414,9 +6423,6 @@ If you have at least **12 ranks** in *Computers*, you can try to foil *Enemy* ta
             
 </div>
 <br>
-<div>
-Created by Marek Lavigne. Modeled after the 'Pathfinder Neceros' character sheet created by Samuel Marino, Nibrodooh, Vince, Samuel Terrazas, chris-b, Magik, and James W, as well as the 'Starfinder Simple' sheet by Phillip Goettsch.    
-</div>
 <rolltemplate class="sheet-rolltemplate-pf_check">
     <div class="sheet-wrapper">
         <div class="sheet-header_background"><div class="sheet-header">{{name}}{{check}}</div></div>
