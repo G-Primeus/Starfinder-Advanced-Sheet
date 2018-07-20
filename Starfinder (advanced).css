@@ -308,6 +308,54 @@ input.sheet-drtab7:checked ~ div.sheet-drtab7, {
     bottom: -3px;
 }
 
+/* side-by-side textareas (Defense Notes)*/
+
+.sheet-textAreaColumn{
+    width:100%;    
+}
+.sheet-textAreaColumn div{
+    float:left;
+    width:33%;
+    padding:3px;
+    box-sizing: border-box;
+}
+
+.sheet-textAreaColumn div span{
+    display:block;
+    text-align:center;
+}
+
+.sheet-textAreaColumn div textarea{
+    box-sizing: border-box;
+    width:100%;
+    border:3px solid #D3D3D3;
+    min-height:150px;
+}
+
+/* side-by-side textareas (Attack Notes)*/
+
+.sheet-textAreaColumn-2{
+    width:100%;    
+}
+.sheet-textAreaColumn-2 div{
+    float:left;
+    width:20%;
+    padding:2px;
+    box-sizing: border-box;
+}
+
+.sheet-textAreaColumn-2 div span{
+    display:block;
+    text-align:center;
+}
+
+.sheet-textAreaColumn-2 div textarea{
+    box-sizing: border-box;
+    width:100%;
+    border:3px solid #D3D3D3;
+    min-height:150px;
+}
+
 /* generic fields */
 
 .sheet-small-label2 > input,
@@ -545,6 +593,20 @@ button:active
 }
 
 /* Roll Templates */
+
+.sheet-rolltemplate-pf_check table>thead>tr>th, 
+.sheet-rolltemplate-pf_check table>tbody>tr>th, 
+.sheet-rolltemplate-pf_check table>tfoot>tr>th, 
+.sheet-rolltemplate-pf_check table>thead>tr>td, 
+.sheet-rolltemplate-pf_check table>tbody>tr>td, 
+.sheet-rolltemplate-pf_check table>tfoot>tr>td { 
+    padding: 0px;
+    border: none; 
+}
+.sheet-rolltemplate-pf_check table {
+    border: none; 
+    margin: 0;
+}
 
 .sheet-rolltemplate-pf_check .sheet-wrapper {
   background: linear-gradient(#03778E, #00465C, #123352);
@@ -960,6 +1022,21 @@ button:active
 .sheet-rolltemplate-pf_attack2 .inlinerollresult.importantroll {
 	color: #4A57ED;
     border: none;
+}
+
+.sheet-rolltemplate-pf_attack3 table>thead>tr>th, 
+.sheet-rolltemplate-pf_attack3 table>tbody>tr>th, 
+.sheet-rolltemplate-pf_attack3 table>tfoot>tr>th, 
+.sheet-rolltemplate-pf_attack3 table>thead>tr>td, 
+.sheet-rolltemplate-pf_attack3 table>tbody>tr>td, 
+.sheet-rolltemplate-pf_attack3 table>tfoot>tr>td { 
+    padding: 0px;
+    border: none; 
+}
+
+.sheet-rolltemplate-pf_attack3 table {
+    border: none; 
+    margin: 0;
 }
 
 .sheet-rolltemplate-pf_attack3 table {
