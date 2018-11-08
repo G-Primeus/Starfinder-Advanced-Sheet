@@ -19,11 +19,12 @@
 	</div>
 </div>
 
-<input type="radio" style="position: relative; margin-right: 20px; margin-left: 30px;" name="attr_tab" class="sheet-tab sheet-tab1" value="1" title="Character" checked="checked" /><b>PC</b>
-<input type="radio" style="position: relative; margin-right: 20px; margin-left: 30px;" name="attr_tab" class="sheet-tab sheet-tab2" value="2" title="Artificial Intelligence" /><b>AI</b>
-<input type="radio" style="position: relative; margin-right: 20px; margin-left: 30px;" name="attr_tab" class="sheet-tab sheet-tab3" value="3" title="Starship" /><b>Starship</b>
-<input type="radio" style="position: relative; margin-right: 20px; margin-left: 30px;" name="attr_tab" class="sheet-tab sheet-tab4" value="4" title="NPC" /><b>NPC</b>
-<input type="radio" style="position: rarrelative; margin-right: 20px; margin-left: 30px;" name="attr_tab" class="sheet-tab sheet-tab5" value="5" title="Settings" /><b>Settings</b>
+<input type="radio" style="position: relative; margin-right: 10px; margin-left: 20px;" name="attr_tab" class="sheet-tab sheet-tab1" value="1" title="Character" checked="checked" /><b>PC</b>
+<input type="radio" style="position: relative; margin-rvehight: 10px; margin-left: 20px;" name="attr_tab" class="sheet-tab sheet-tab2" value="2" title="Artificial Intelligence" /><b>AI</b>
+<input type="radio" style="position: relative; margin-right: 10px; margin-left: 20px;" name="attr_tab" class="sheet-tab sheet-tab3" value="3" title="Starship" /><b>Starship</b>
+<input type="radio" style="position: relative; margin-right: 10px; margin-left: 20px;" name="attr_tab" class="sheet-tab sheet-tab6" value="6" title="Vehicles" /><b>Vehicles</b>
+<input type="radio" style="position: relative; margin-right: 10px; margin-left: 20px;" name="attr_tab" class="sheet-tab sheet-tab4" value="4" title="NPC" /><b>NPC</b>
+<input type="radio" style="position: relative; margin-right: 10px; margin-left: 20px;" name="attr_tab" class="sheet-tab sheet-tab5" value="5" title="Settings" /><b>Settings</b>
 <br>
 <br>
 
@@ -596,13 +597,13 @@
 						<span class="sheet-table-header" style="background-color:#D3D3D3;" ><i>Run</i></span>
 					    </div>
 					<div class="sheet-table-row">
-						<span class="sheet-table-data-center"><input title="@{speed-modified}" type="number" style="background-color:#c5d1de;" name="attr_speed-modified" value="[[@{speed-base} + @{speed-misc} + @{armor-speed}]]" disabled></span>
+						<span class="sheet-table-data-center"><input title="@{speed-modified}" type="number" style="background-color:#c5d1de;" name="attr_speed-modified" value="[[(@{speed-base} + @{speed-misc} + (@{armor-speed} * @{armor-equipped}) + (@{armor-speed-2} * @{armor-equipped-2}))]]" disabled></span>
 						<span class="sheet-table-data-center" style="width: 1px;">=</span>
 						<span class="sheet-table-data-center"><input title="@{speed-base}" type="number" name="attr_speed-base" value="0"></span>
 						<span class="sheet-table-data-center" style="width: 1px;">+</span>
 						<span class="sheet-table-data-center"><input title="@{speed-misc}" type="number" name="attr_speed-misc" value="0"></span>
 						<span class="sheet-table-data-center" style="width: 1px;">+</span>
-						<span class="sheet-table-data-center"><input title="@{speed-penalty}" style="background-color:#c5d1de;" type="number" name="attr_speed-penalty" value="@{armor-speed}" disabled></span>
+						<span class="sheet-table-data-center"><input title="@{speed-penalty}" style="background-color:#c5d1de;" type="number" name="attr_speed-penalty" value="[[((@{armor-speed} * @{armor-equipped}) + (@{armor-speed-2} * @{armor-equipped-2}))]]" disabled></span>
 						<span class="sheet-table-data-center" style="width: 1px; background-color:black;">&nbsp;</span>
 						<span class="sheet-table-data-center"><input title="@{speed-fly}" type="number" name="attr_speed-fly" value="0"></span>
 						<span class="sheet-table-data-center"><input title="@{speed-swim}" type="number" name="attr_speed-swim" value="0"></span>
@@ -650,12 +651,12 @@
 						<span class="sheet-table-header" style="background-color:#D3D3D3;" ><i>Notes</i></span>
 					</div>
 					<div class="sheet-table-row">
-						<span class="sheet-table-row-name"><button class="sheet-text-button" title="%{Fort-Save}" type="roll" name="roll_Fort-Save" value="&{template:pf_check} {{name=@{character_name}'s }} {{check=Fort Save}} {{skill_chk=[[1d20 + [[(@{Fort-base} + @{Fort-ability-score} + @{Fort-race} + @{Fort-enh} + @{Fort-ins} + @{Fort-div} + @{Fort-misc} + @{Fort-EQ})]]]]}} {{save-notes=@{Fort-save-notes}}}">Fort</button></span>
+						<span class="sheet-table-row-name"><button class="sheet-text-button" title="%{Fort-Save}" type="roll" name="roll_Fort-Save" value="&{template:pf_custom} {{name=@{character_name}'s Fort Save}} {{Check Result=[[1d20 + [[(@{Fort-base} + @{Fort-ability-score} + @{Fort-race} + @{Fort-enh} + @{Fort-ins} + @{Fort-div} + @{Fort-misc} + @{Fort-EQ})]]]]}} {{Save Notes=@{Fort-save-notes}}}">Fort</button></span>
 						<span class="sheet-table-data-center"><input title="@{Fort}" type="number" style="background-color:#c5d1de;" name="attr_Fort" value="[[(@{Fort-base} + @{Fort-ability-score} + @{Fort-race} + @{Fort-enh} + @{Fort-ins} + @{Fort-div} + @{Fort-misc} + @{Fort-EQ})]]" disabled></span>
 						<span class="sheet-table-data-center" ><i>=</i></span>
 						<span class="sheet-table-data-center"><input title="@{Fort-base}" type="number" style="background-color:#c5d1de;" name="attr_Fort-base" value="@{total-Fort}" disabled></span>
 						<span class="sheet-table-data-center" ><i>+</i></span>
-						<select title="@{Fort-ability-score}" style="width: 98%;" name="attr_Fort-ability-score"></span>
+						<select title="@{Fort-ability-score}" style="width: 98%; position: relative; top: 5.5px;" name="attr_Fort-ability-score"></span>
 						<option value="@{CON-mod}">&bull;CON&#8711;</option>
 						<option value="@{STR-mod}">STR&#8711;</option>
 						<option value="@{DEX-mod}">DEX&#8711;</option>
@@ -671,15 +672,15 @@
 					    <span class="sheet-table-data-center"><input title="@{Fort-misc}" type="number" name="attr_Fort-misc" value="0"></span>
 					    <span class="sheet-table-data-center"><input style="width: 90%;" title="@{Fort-equation}" type="text" name="attr_Fort-equation" value="0"></span>
 					    <span class="sheet-table-data-center"><input title="@{Fort-EQ}" type="number" style="background-color:#c5d1de;" name="attr_Fort-EQ" value="@{Fort-equation}" disabled></span>
-					    <span class="sheet-table-data-center"><input style="width: 90%;" title="@{Fort-notes}" type="text" name="attr_Fort-save-notes" placeholder="Fortitude Notes"></span>
+					    <span class="sheet-table-data-center"><textarea rows="1" style="width: 85%; position: relative; top: 5.5px;" title="@{Fort-notes}" type="text" name="attr_Fort-save-notes" placeholder="Fortitude Notes"></textarea></span>
 					</div>
 					<div class="sheet-table-row">
-						<span class="sheet-table-row-name"><button class="sheet-text-button" title="%{Ref-Save}" type="roll" name="roll_Ref-Save" value="&{template:pf_check} {{name=@{character_name}'s }} {{check=Ref Save}} {{skill_chk=[[1d20 + [[(@{Ref-base} + @{Ref-ability-score} + @{Ref-race} + @{Ref-enh} + @{Ref-ins} + @{Ref-div} + @{Ref-misc} + @{Ref-EQ})]]]]}} {{save-notes=@{Ref-save-notes}}}">Ref</button></span>
+						<span class="sheet-table-row-name"><button class="sheet-text-button" title="%{Ref-Save}" type="roll" name="roll_Ref-Save" value="&{template:pf_custom} {{name=@{character_name}'s Ref Save}} {{Check Result=[[1d20 + [[(@{Ref-base} + @{Ref-ability-score} + @{Ref-race} + @{Ref-enh} + @{Ref-ins} + @{Ref-div} + @{Ref-misc} + @{Ref-EQ})]]]]}} {{Save Notes=@{Ref-save-notes}}}">Ref</button></span>
 						<span class="sheet-table-data-center"><input title="@{Ref}" type="number" style="background-color:#c5d1de;" name="attr_Ref" value="[[(@{Ref-base} + @{Ref-ability-score} + @{Ref-race} + @{Ref-enh} + @{Ref-ins} + @{Ref-div} + @{Ref-misc} + @{Ref-EQ})]]" disabled></span>
 						<span class="sheet-table-data-center" ><i>=</i></span>
 						<span class="sheet-table-data-center"><input title="@{Ref-base}" type="number" style="background-color:#c5d1de;" name="attr_Ref-base" value="@{total-Ref}" disabled></span>
 						<span class="sheet-table-data-center" ><i>+</i></span>
-						<select title="@{Ref-ability-score}" style="width: 98%;" name="attr_Ref-ability-score"></span>
+						<select title="@{Ref-ability-score}" style="width: 98%; position: relative; top: 5.5px;" name="attr_Ref-ability-score"></span>
 						<option value="@{DEX-mod}">&bull;DEX&#8711;</option>
 						<option value="@{STR-mod}">STR&#8711;</option>
 						<option value="@{CON-mod}">CON&#8711;</option>
@@ -695,15 +696,15 @@
 					    <span class="sheet-table-data-center"><input title="@{Ref-misc}" type="number" name="attr_Ref-misc" value="0"></span>
 					    <span class="sheet-table-data-center"><input style="width: 90%;" title="@{Ref-equation}" type="text" name="attr_Ref-equation" value="0"></span>
 					    <span class="sheet-table-data-center"><input title="@{Ref-EQ}" type="number" style="background-color:#c5d1de;" name="attr_Ref-EQ" value="@{Ref-equation}" disabled></span>
-					    <span class="sheet-table-data-center"><input style="width: 90%;" title="@{Ref-notes}" type="text" name="attr_Ref-save-notes" placeholder="Reflex Notes"></span>
+					    <span class="sheet-table-data-center"><textarea rows="1" style="width: 85%; position: relative; top: 5.5px;" title="@{Ref-notes}" type="text" name="attr_Ref-save-notes" placeholder="Reflex Notes"></textarea></span>
 					</div>
 					<div class="sheet-table-row">
-						<span class="sheet-table-row-name"><button class="sheet-text-button" title="%{Will-Save}" type="roll" name="roll_Will-Save" value="&{template:pf_check} {{name=@{character_name}'s }} {{check=Will Save}} {{skill_chk=[[1d20 + [[(@{Will-base} + @{Will-ability-score} + @{Will-race} + @{Will-enh} + @{Will-ins} + @{Will-div} + @{Will-misc} + @{Will-EQ})]]]]}} {{save-notes=@{Will-save-notes}}}">Will</button></span>
+						<span class="sheet-table-row-name"><button class="sheet-text-button" title="%{Will-Save}" type="roll" name="roll_Will-Save" value="&{template:pf_custom} {{name=@{character_name}'s Will Save}} {{Check Result=[[1d20 + [[(@{Will-base} + @{Will-ability-score} + @{Will-race} + @{Will-enh} + @{Will-ins} + @{Will-div} + @{Will-misc} + @{Will-EQ})]]]]}} {{Save Notes=@{Will-save-notes}}}">Will</button></span>
 						<span class="sheet-table-data-center"><input title="@{Will}" type="number" style="background-color:#c5d1de;" name="attr_Will" value="[[(@{Will-base} + @{Will-ability-score} + @{Will-race} + @{Will-enh} + @{Will-ins} + @{Will-div} + @{Will-misc} + @{Will-EQ})]]" disabled></span>
 						<span class="sheet-table-data-center" ><i>=</i></span>
 						<span class="sheet-table-data-center"><input title="@{Will-base}" type="number" style="background-color:#c5d1de;" name="attr_Will-base" value="@{total-Will}" disabled></span>
 						<span class="sheet-table-data-center" ><i>+</i></span>
-						<select title="@{Will-ability-score}" style="width: 98%;" name="attr_Will-ability-score"></span>
+						<select title="@{Will-ability-score}" style="width: 98%; position: relative; top: 5.5px;" name="attr_Will-ability-score"></span>
 						<option value="@{WIS-mod}">&bull;WIS&#8711;</option>
 						<option value="@{STR-mod}">STR&#8711;</option>
 						<option value="@{DEX-mod}">DEX&#8711;</option>
@@ -719,7 +720,7 @@
 					    <span class="sheet-table-data-center"><input title="@{Will-misc}" type="number" name="attr_Will-misc" value="0"></span>
 					    <span class="sheet-table-data-center"><input style="width: 90%;" title="@{Will-equation}" type="text" name="attr_Will-equation" value="0"></span>
 					    <span class="sheet-table-data-center"><input title="@{Will-EQ}" type="number" style="background-color:#c5d1de;" name="attr_Will-EQ" value="@{Will-equation}" disabled></span>
-					    <span class="sheet-table-data-center"><input style="width: 90%;" title="@{Will-notes}" type="text" name="attr_Will-save-notes" placeholder="Will Notes"></span>
+					    <span class="sheet-table-data-center"><textarea rows="1" style="width: 85%; position: relative; top: 5.5px;" title="@{Will-notes}" type="text" name="attr_Will-save-notes" placeholder="Will Notes"></textarea></span>
 				    </div>
                 </div>
             </div>
@@ -763,7 +764,7 @@
 						<option value="(floor((@{CHA-mod} + @{max-dex}) - (abs(@{CHA-mod} - @{max-dex}))) / 2)">CHA&#8711;</option>
 					</select>
 				<span class="sheet-table-data-center" ><input title="@{EAC-mod}" style="background-color:#c5d1de;" type="number" name="attr_EAC-mod" value="[[@{EAC-ability-score}]]" disabled></span>
-				<span class="sheet-table-data-center" ><input title="@{EAC-armor}" style="background-color:#c5d1de;" type="number" name="attr_EAC-armor" value="(@{armor-eacbonus} * @{armor-equipped})" disabled></span>
+				<span class="sheet-table-data-center" ><input title="@{EAC-armor}" style="background-color:#c5d1de;" type="number" name="attr_EAC-armor" value="[[((@{armor-eacbonus} * @{armor-equipped}) + (@{armor-eacbonus-2} * @{armor-equipped-2}))]]" disabled></span>
 				<span class="sheet-table-data-center" ><input title="@{EAC-race}" type="number" name="attr_EAC-race" value="0"></span>
 				<span class="sheet-table-data-center" ><input title="@{EAC-enh}" type="number" name="attr_EAC-enh" value="0"></span>
 				<span class="sheet-table-data-center" ><input title="@{EAC-ins}" type="number" name="attr_EAC-ins" value="0"></span>
@@ -787,7 +788,7 @@
 						<option value="(floor((@{CHA-mod} + @{max-dex}) - (abs(@{CHA-mod} - @{max-dex}))) / 2)">CHA&#8711;</option>
 					</select>
 				<span class="sheet-table-data-center" ><input title="@{KAC-mod}" style="background-color:#c5d1de;" type="number" name="attr_KAC-mod" value="[[@{KAC-ability-score}]]" disabled></span>
-				<span class="sheet-table-data-center" ><input title="@{KAC-armor}" style="background-color:#c5d1de;" type="number" name="attr_KAC-armor" value="[[(@{armor-kacbonus} * @{armor-equipped})]]" disabled></span>
+				<span class="sheet-table-data-center" ><input title="@{KAC-armor}" style="background-color:#c5d1de;" type="number" name="attr_KAC-armor" value="[[((@{armor-kacbonus} * @{armor-equipped}) + (@{armor-kacbonus-2} * @{armor-equipped-2}))]]" disabled></span>
 				<span class="sheet-table-data-center" ><input title="@{KAC-race}" type="number" name="attr_KAC-race" value="0"></span>
 				<span class="sheet-table-data-center" ><input title="@{KAC-enh}" type="number" name="attr_KAC-enh" value="0"></span>
 				<span class="sheet-table-data-center" ><input title="@{KAC-ins}" type="number" name="attr_KAC-ins" value="0"></span>
@@ -824,7 +825,7 @@
 		<div class="sheet-table sheet-pc-armor">
 		<div class="sheet-table-data-center" style="width:80%;">
 				<div class="sheet-table">
-					<span class="sheet-table-name">Armor</span>
+					<span class="sheet-table-name">Primary Armor</span>
 					    <div class="sheet-table-row">
 						<span class="sheet-table-header" style="background-color:#D3D3D3;" ><i>Equip</i></span>
 						<span class="sheet-table-header" style="background-color:#D3D3D3;" ><i>Level</i></span>
@@ -833,7 +834,8 @@
 						<span class="sheet-table-header" style="background-color:#D3D3D3;" ><i>KAC</i></span>
 						<span class="sheet-table-header" style="background-color:#D3D3D3;" ><i>Max DEX</i></span>
 						<span class="sheet-table-header" style="background-color:#D3D3D3;" ><i>ACP</i></span>
-						<span class="sheet-table-header" style="background-color:#D3D3D3;" ><i>Upgrade Slots</i></span>
+						<span class="sheet-table-header" style="background-color:#D3D3D3;" ><i>Upgrd Slots</i></span>
+						<span class="sheet-table-header" style="background-color:#D3D3D3;" ></span>
 						<span class="sheet-table-header" style="background-color:#D3D3D3;" ><i>Type</i></span>
 					</div>
 					<div class="sheet-table-row">
@@ -845,11 +847,12 @@
 						<span class="sheet-table-data-center" ><input title="@{armor-max-dex}" type="number" name="attr_armor-max-dex" value="0"></span>
 					    <span class="sheet-table-data-center" ><input title="@{armor-acp}" type="number" name="attr_armor-acp" value="0"></span>
 					    <span class="sheet-table-data-center" ><input title="@{armor-upgrade-slots}" type="number" name="attr_armor-upgrade-slots" value="0"></span>
-					    <span class="sheet-table-data-center" ><select title="@{armor-type}"name="attr_armor-type">
+					    <span class="sheet-table-data-center" style="width: 45px;" ></span>
+					    <span class="sheet-table-data-center" ><select style="width: 95px;" title="@{armor-type}"name="attr_armor-type">
 								<option value="None">-</option>
 								<option value="Light">Light</option>
 								<option value="Heavy">Heavy</option>
-								<option value="Power">Power</option>
+								<option value="Powered">Powered</option>
 							</select>
 						</span>
 					</div>
@@ -859,9 +862,10 @@
 				<span class="sheet-table-header" style="background-color:#D3D3D3;" ></span>
 				<span class="sheet-table-header" style="background-color:#D3D3D3;" ><i>Speed</i></span>
 				<span class="sheet-table-header" style="background-color:#D3D3D3;" ><i>Usage</i></span>
+				<span class="sheet-table-header" style="background-color:#D3D3D3;" ><i>#Left</i></span>
 				<span class="sheet-table-header" style="background-color:#D3D3D3;" ><i>Capacity</i></span>
+				<span class="sheet-table-header" style="background-color:#D3D3D3;" ><i>Wpn Slots</i></span>
 				<span class="sheet-table-header" style="background-color:#D3D3D3;" ><i>Prof</i></span>
-				<span class="sheet-table-header" style="background-color:#D3D3D3;" ><i>Weapon Slots</i></span>
 				<span class="sheet-table-header" style="background-color:#D3D3D3;" ><i>Size</i></span>
 				</div>
 				<div class="sheet-table-row">
@@ -869,15 +873,16 @@
 				<span class="sheet-table-data-center" ></span>
 				<span class="sheet-table-data-center" ></span>
 				<span class="sheet-table-data-center" ><input title="@{armor-speed}" type="number" name="attr_armor-speed" value="0"></span>
-				<span class="sheet-table-data-center" ><input title="@{armor-usage}" type="number" name="attr_armor-usage" value="0"></span>
+				<span class="sheet-table-data-center" ><input style="width: 46px;" title="@{armor-usage}" type="text" name="attr_armor-usage" value="0"></span>
+				<span class="sheet-table-data-center" ><input title="@{armor-#left}" type="number" name="attr_armor-#left" value="0"></span>
 				<span class="sheet-table-data-center" ><input title="@{armor-capacity}" type="number" name="attr_armor-capacity" value="0"></span>
+				<span class="sheet-table-data-center"><input title="@{armor-weapon-slots}" type="number" name="attr_armor-weapon-slots" value="0"></span>
 				<span class="sheet-table-data-center" >
 					<select title="@{armor-proficiency}" name="attr_armor-proficiency" >
 						<option value="0" selected>Yes</option>
 						<option value="4" >No</option>
 					</select>					
 				</span>
-				<span class="sheet-table-data-center"><input title="@{armor-weapon-slots}" type="number" name="attr_armor-weapon-slots" value="0"></span>
 				<span class="sheet-table-data-center" style="width: 105px;" ><select title="@{armor-size}" style="width: 90%;" name="attr_armor-size" >
 						        <option >-</option>
 						        <option >Colossal</option>
@@ -906,8 +911,8 @@
 				<span class="sheet-table-header" style="background-color:#D3D3D3;" ></i>Max DEX</i></span>
 			  	</div>
 				<div class="sheet-table-row">
-				<span class="sheet-table-data-center" ><input title="@{acp}" style="background-color:#c5d1de;" type="number" name="attr_acp" value="(@{armor-acp} - @{acp-misc})" disabled></span>
-				<span class="sheet-table-data-center" ><input title="@{max-dex}" style="background-color:#c5d1de;" type="number" name="attr_max-dex" value="(@{armor-max-dex} + @{max-dex-misc})" disabled></span>
+				<span class="sheet-table-data-center" ><input title="@{acp}" style="background-color:#c5d1de;" type="number" name="attr_acp" value="((@{armor-equipped} * @{armor-acp}) + (@{armor-equipped-2} * @{armor-acp-2}) - @{acp-misc})" disabled></span>
+				<span class="sheet-table-data-center" ><input title="@{max-dex}" style="background-color:#c5d1de;" type="number" name="attr_max-dex" value="((@{armor-equipped} * @{armor-max-dex}) + (@{armor-equipped-2} * @{armor-max-dex-2}) + @{max-dex-misc})" disabled></span>
 			    </div>
 			    <div class="sheet-table-row">   
 				<span class="sheet-table-header" style="background-color:#D3D3D3;" ><i>ACP Misc</i></span>
@@ -919,6 +924,84 @@
 		    </div>
 		</div>
 	</div>
+
+<div class="sheet-table-data-center" style="width:99.5%;">
+				<div class="sheet-table">
+					<span class="sheet-table-name">Secondary Armor</span>
+					    <div class="sheet-table-row">
+						<span class="sheet-table-header" style="background-color:#D3D3D3;" ><i>Equip</i></span>
+						<span class="sheet-table-header" style="background-color:#D3D3D3;" ><i>Level</i></span>
+						<span class="sheet-table-header" style="background-color:#D3D3D3;" ><i>Armor Name</i></span>
+						<span class="sheet-table-header" style="background-color:#D3D3D3;" ><i>EAC</i></span>
+						<span class="sheet-table-header" style="background-color:#D3D3D3;" ><i>KAC</i></span>
+						<span class="sheet-table-header" style="background-color:#D3D3D3;" ><i>Max DEX</i></span>
+						<span class="sheet-table-header" style="background-color:#D3D3D3;" ><i>ACP</i></span>
+						<span class="sheet-table-header" style="background-color:#D3D3D3;" ><i>Upgrd Slots</i></span>
+						<span class="sheet-table-header" style="background-color:#D3D3D3;" ></span>
+						<span class="sheet-table-header" style="background-color:#D3D3D3;" ><i>Type</i></span>
+					</div>
+					<div class="sheet-table-row">
+						<span class="sheet-table-data-center" ><input title="@{armor-equipped-2}" type="checkbox" name="attr_armor-equipped-2" value="1" checked /></span>
+						<span class="sheet-table-data-center" ><input title="@{armor-level-2}" type="number" name="attr_armor-level-2" value="0"></span>
+						<span class="sheet-table-data-center" ><input title="@{armor-2}" type="text" name="attr_armor-2" placeholder="Armor" class="sheet-detail-medium"></span>
+					    <span class="sheet-table-data-center" ><input title="@{armor-eacbonus-2}" type="number" name="attr_armor-eacbonus-2" value="0"></span>
+						<span class="sheet-table-data-center" ><input title="@{armor-kacbonus-2}" type="number" name="attr_armor-kacbonus-2" value="0"></span>
+						<span class="sheet-table-data-center" ><input title="@{armor-max-dex-2}" type="number" name="attr_armor-max-dex-2" value="0"></span>
+					    <span class="sheet-table-data-center" ><input title="@{armor-acp-2}" type="number" name="attr_armor-acp-2" value="0"></span>
+					    <span class="sheet-table-data-center" ><input title="@{armor-upgrade-slots-2}" type="number" name="attr_armor-upgrade-slots-2" value="0"></span>
+					    <span class="sheet-table-data-center" style="width: 45px;" ></span>
+					    <span class="sheet-table-data-center" ><select style="width: 95px;" title="@{armor-type-2}"name="attr_armor-type-2">
+								<option value="None">-</option>
+								<option value="Light">Light</option>
+								<option value="Heavy">Heavy</option>
+								<option value="Powered">Powered</option>
+							</select>
+						</span>
+					</div>
+				<div class="sheet-table-row">   
+				<span class="sheet-table-header" style="background-color:#D3D3D3;" ></span>
+				<span class="sheet-table-header" style="background-color:#D3D3D3;" ></span>
+				<span class="sheet-table-header" style="background-color:#D3D3D3;" ></span>
+				<span class="sheet-table-header" style="background-color:#D3D3D3;" ><i>Speed</i></span>
+				<span class="sheet-table-header" style="background-color:#D3D3D3;" ><i>Usage</i></span>
+				<span class="sheet-table-header" style="background-color:#D3D3D3;" ><i>#Left</i></span>
+				<span class="sheet-table-header" style="background-color:#D3D3D3;" ><i>Capacity</i></span>
+				<span class="sheet-table-header" style="background-color:#D3D3D3;" ><i>Wpn Slots</i></span>
+				<span class="sheet-table-header" style="background-color:#D3D3D3;" ><i>Prof</i></span>
+				<span class="sheet-table-header" style="background-color:#D3D3D3;" ><i>Size</i></span>
+				</div>
+				<div class="sheet-table-row">
+				<span class="sheet-table-data-center" ></span>
+				<span class="sheet-table-data-center" ></span>
+				<span class="sheet-table-data-center" ></span>
+				<span class="sheet-table-data-center" ><input title="@{armor-speed-2}" type="number" name="attr_armor-speed-2" value="0"></span>
+				<span class="sheet-table-data-center" ><input style="width: 46px;" title="@{armor-usage-2}" type="text" name="attr_armor-usage-2" value="0"></span>
+				<span class="sheet-table-data-center" ><input title="@{armor-#left-2}" type="number" name="attr_armor-#left-2" value="0"></span>
+				<span class="sheet-table-data-center" ><input title="@{armor-capacity-2}" type="number" name="attr_armor-capacity-2" value="0"></span>
+				<span class="sheet-table-data-center"><input title="@{armor-weapon-slots-2}" type="number" name="attr_armor-weapon-slots-2" value="0"></span>
+				<span class="sheet-table-data-center" >
+					<select title="@{armor-proficiency-2}" name="attr_armor-proficiency-2" >
+						<option value="0" selected>Yes</option>
+						<option value="4" >No</option>
+					</select>					
+				</span>
+				<span class="sheet-table-data-center" style="width: 105px;" ><select title="@{armor-size-2}" style="width: 90%;" name="attr_armor-size-2" >
+						        <option >-</option>
+						        <option >Colossal</option>
+						        <option >Gargantuan</option>
+						        <option >Huge</option>
+						        <option >Large</option>
+						        <option >Medium</option>
+						        <option >Small</option>
+						        <option >Tiny</option>
+						        <option >Diminuitive</option>
+						        <option >Fine</option>
+					        </select>
+					     </span>
+			          </div>
+			       </div>
+			    </div>
+
 <br>
 <b>Armor Upgrades &#9660;</b>
 	<input type="checkbox" class="sheet-pc-armor-upgrades-show" title="@{armor-upgrades-show}" name="attr_armor-upgrades-show" value="1" style="opacity:0;width: 16px;height: 16px;position: relative;top: 1px;left: -7px;margin: -10px;cursor: pointer;z-index: 1;" checked/><span></span>
@@ -1510,11 +1593,11 @@
 				<span class="sheet-table-header" style="color: black; background-color:#D3D3D3;" ><i>Max</i></span>
 				<span class="sheet-table-header" style="color: black; background-color:#D3D3D3;" ><i>Max Calc</i></span>
 			</div>
-				<span class="sheet-table-data-center"><button title="%{repeating_class_$X_roll}" type="roll" name="roll_roll" value="&{template:pf_check} {{name=@{character_name}'s }} {{check=@{name}}} {{freq=@{freq}}} {{type=@{type}}} {{left=@{left}**/**@{max}}} {{notes=@{description}}}"></button></span>
+				<span class="sheet-table-data-center"><button title="%{repeating_class_$X_roll}" type="roll" name="roll_roll" value="&{template:pf_check} {{name=@{character_name}'s }} {{check=@{name}}} {{freq=@{freq}}} {{type=@{type}}} {{left=@{left}}} {{notes=@{description}}}"></button></span>
 				<span class="sheet-table-data-center"><input title="@{repeating_class_$X_type}" type="text" value="Class Feature" name="attr_type" disabled></span>
 				<span class="sheet-table-data-center" style="width: 35%;" ><input title="@{repeating_class_$X_name}" type="text" name="attr_name"></span>
 				<span class="sheet-table-data-center"><input title="@{repeating_class_$X_freq}" type="text" name="attr_freq" placeholder="Frequency"></span>
-				<span class="sheet-table-data-center"><input title="@{repeating_class_$X_left}" type="number" name="attr_left" value="0"></span>
+				<span class="sheet-table-data-center"><input title="@{repeating_class_$X_left}" type="number" name="attr_left"></span>
 				<span class="sheet-table-data-center">/</span>
 				<span class="sheet-table-data-center"><input title="@{repeating_class_$X_max}" type="number" name="attr_max" value="@{max-calculation}" disabled></span>
 				<span class="sheet-table-data-center"><input title="@{repeating_class_$X_max-calculation}" type="text" name="attr_max-calculation" value="0"></span>
@@ -1544,11 +1627,11 @@
 				<span class="sheet-table-header" style="color: black; background-color:#D3D3D3;" ><i>Max</i></span>
 				<span class="sheet-table-header" style="color: black; background-color:#D3D3D3;" ><i>Max Calc</i></span>
 			</div>
-				<span class="sheet-table-data-center"><button title="%{repeating_feat_$X_roll}" type="roll" name="roll_roll" value="&{template:pf_check} {{name=@{character_name}'s }} {{check=@{name}}} {{freq=@{freq}}} {{type=@{type}}} {{left=@{left}**/**@{max}}} {{notes=@{description}}}"></button></span>
+				<span class="sheet-table-data-center"><button title="%{repeating_feat_$X_roll}" type="roll" name="roll_roll" value="&{template:pf_check} {{name=@{character_name}'s }} {{check=@{name}}} {{freq=@{freq}}} {{type=@{type}}} {{left=@{left}}} {{notes=@{description}}}"></button></span>
 				<span class="sheet-table-data-center"><input title="@{repeating_feat_$X_type}" type="text" value="Feat" name="attr_type" disabled></span>
 				<span class="sheet-table-data-center" style="width: 35%;" ><input title="@{repeating_feat_$X_name}" type="text" name="attr_name"></span>
 				<span class="sheet-table-data-center"><input title="@{repeating_feat_$X_freq}" type="text" name="attr_freq" placeholder="Frequency"></span>
-				<span class="sheet-table-data-center"><input title="@{repeating_feat_$X_left}" type="number" name="attr_left" value="0"></span>
+				<span class="sheet-table-data-center"><input title="@{repeating_feat_$X_left}" type="number" name="attr_left"></span>
 				<span class="sheet-table-data-center">/</span>
 				<span class="sheet-table-data-center"><input title="@{repeating_feat_$X_max}" type="number" name="attr_max" value="@{max-calculation}" disabled></span>
 				<span class="sheet-table-data-center"><input title="@{repeating_feat_$X_max-calculation}" type="text" name="attr_max-calculation" value="0"></span>
@@ -1578,11 +1661,11 @@
 				<span class="sheet-table-header" style="color: black; background-color:#D3D3D3;" ><i>Max</i></span>
 				<span class="sheet-table-header" style="color: black; background-color:#D3D3D3;" ><i>Max Calc</i></span>
 			</div>
-				<span class="sheet-table-data-center"><button title="%{repeating_theme_$X_roll}" type="roll" name="roll_roll" value="&{template:pf_check} {{name=@{character_name}'s }} {{check=@{name}}} {{freq=@{freq}}} {{type=@{type}}} {{left=@{left}**/**@{max}}} {{notes=@{description}}}"></button></span>
+				<span class="sheet-table-data-center"><button title="%{repeating_theme_$X_roll}" type="roll" name="roll_roll" value="&{template:pf_check} {{name=@{character_name}'s }} {{check=@{name}}} {{freq=@{freq}}} {{type=@{type}}} {{left=@{left}}} {{notes=@{description}}}"></button></span>
 				<span class="sheet-table-data-center"><input title="@{repeating_theme_$X_type}" type="text" value="Theme" name="attr_type" disabled></span>
 				<span class="sheet-table-data-center" style="width: 35%;" ><input title="@{repeating_theme_$X_name}" type="text" name="attr_name"></span>
 				<span class="sheet-table-data-center"><input title="@{repeating_theme_$X_freq}" type="text" name="attr_freq" placeholder="Frequency"></span>
-				<span class="sheet-table-data-center"><input title="@{repeating_theme_$X_left}" type="number" name="attr_left" value="0"></span>
+				<span class="sheet-table-data-center"><input title="@{repeating_theme_$X_left}" type="number" name="attr_left"></span>
 				<span class="sheet-table-data-center">/</span>
 				<span class="sheet-table-data-center"><input title="@{repeating_theme_$X_max}" type="number" name="attr_max" value="@{max-calculation}" disabled></span>
 				<span class="sheet-table-data-center"><input title="@{repeating_theme_$X_max-calculation}" type="text" name="attr_max-calculation" value="0"></span>
@@ -1612,11 +1695,11 @@
 				<span class="sheet-table-header" style="color: black; background-color:#D3D3D3;" ><i>Max</i></span>
 				<span class="sheet-table-header" style="color: black; background-color:#D3D3D3;" ><i>Max Calc</i></span>
 			</div>
-				<span class="sheet-table-data-center"><button title="%{repeating_racial_$X_roll}" type="roll" name="roll_roll" value="&{template:pf_check} {{name=@{character_name}'s }} {{check=@{name}}} {{freq=@{freq}}} {{type=@{type}}} {{left=@{left}**/**@{max}}} {{notes=@{description}}}"></button></span>
+				<span class="sheet-table-data-center"><button title="%{repeating_racial_$X_roll}" type="roll" name="roll_roll" value="&{template:pf_check} {{name=@{character_name}'s }} {{check=@{name}}} {{freq=@{freq}}} {{type=@{type}}} {{left=@{left}}} {{notes=@{description}}}"></button></span>
 				<span class="sheet-table-data-center"><input title="@{repeating_racial_$X_type}" type="text" value="Racial" name="attr_type" disabled></span>
 				<span class="sheet-table-data-center" style="width: 35%;" ><input title="@{repeating_racial_$X_name}" type="text" name="attr_name"></span>
 				<span class="sheet-table-data-center"><input title="@{repeating_racial_$X_freq}" type="text" name="attr_freq" placeholder="Frequency"></span>
-				<span class="sheet-table-data-center"><input title="@{repeating_racial_$X_left}" type="number" name="attr_left" value="0"></span>
+				<span class="sheet-table-data-center"><input title="@{repeating_racial_$X_left}" type="number" name="attr_left"></span>
 				<span class="sheet-table-data-center">/</span>
 				<span class="sheet-table-data-center"><input title="@{repeating_racial_$X_max}" type="number" name="attr_max" value="@{max-calculation}" disabled></span>
 				<span class="sheet-table-data-center"><input title="@{repeating_racial_$X_max-calculation}" type="text" name="attr_max-calculation" value="0"></span>
@@ -1646,11 +1729,11 @@
 				<span class="sheet-table-header" style="color: black; background-color:#D3D3D3;" ><i>Max</i></span>
 				<span class="sheet-table-header" style="color: black; background-color:#D3D3D3;" ><i>Max Calc</i></span>
 			</div>
-				<span class="sheet-table-data-center"><button title="%{repeating_misc_$X_roll}" type="roll" name="roll_roll" value="&{template:pf_check} {{name=@{character_name}'s }} {{check=@{name}}} {{freq=@{freq}}} {{type=@{type}}} {{left=@{left}**/**@{max}}} {{notes=@{description}}}"></button></span>
+				<span class="sheet-table-data-center"><button title="%{repeating_misc_$X_roll}" type="roll" name="roll_roll" value="&{template:pf_check} {{name=@{character_name}'s }} {{check=@{name}}} {{freq=@{freq}}} {{type=@{type}}} {{left=@{left}}} {{notes=@{description}}}"></button></span>
 				<span class="sheet-table-data-center"><input title="@{repeating_misc_$X_type}" type="text" placeholder="Misc" name="attr_type"></span>
 				<span class="sheet-table-data-center" style="width: 35%;" ><input title="@{repeating_misc_$X_name}" type="text" name="attr_name"></span>
 				<span class="sheet-table-data-center"><input title="@{repeating_misc_$X_freq}" type="text" name="attr_freq" placeholder="Frequency"></span>
-				<span class="sheet-table-data-center"><input title="@{repeating_misc_$X_left}" type="number" name="attr_left" value="0"></span>
+				<span class="sheet-table-data-center"><input title="@{repeating_misc_$X_left}" type="number" name="attr_left"></span>
 				<span class="sheet-table-data-center">/</span>
 				<span class="sheet-table-data-center"><input title="@{repeating_misc_$X_max}" type="number" name="attr_max" value="@{max-calculation}" disabled></span>
 				<span class="sheet-table-data-center"><input title="@{repeating_misc_$X_max-calculation}" type="text" name="attr_max-calculation" value="0"></span>
@@ -1724,7 +1807,7 @@
 					<input title="Acrobatics-hidden-cs" type="hidden" name="attr_Acrobatics-hidden-cs" value="[[({0,@{Acrobatics-ranks}}>1)*3]]" /></span>
 					<span class="sheet-table-data-center"></span>
 					<span class="sheet-table-data-left">Acrobatics *</span>
-					<span class="sheet-table-data-center"><input title="@{Acrobatics}" type="number" name="attr_Acrobatics" style="background-color:#c5d1de;" value="[[@{Acrobatics-ranks} + @{Acrobatics-mod} + @{Acrobatics-trained} + @{Acrobatics-race} + @{Acrobatics-enh} + @{Acrobatics-ins} + @{Acrobatics-div} + @{Acrobatics-misc} - @{acp}]]" disabled></span>
+					<span class="sheet-table-data-center"><input title="@{Acrobatics}" type="number" name="attr_Acrobatics" style="background-color:#c5d1de;" value="[[[[@{Acrobatics-ranks} + @{Acrobatics-mod} + @{Acrobatics-trained} + @{Acrobatics-race} + @{Acrobatics-enh} + @{Acrobatics-ins} + @{Acrobatics-div} + @{Acrobatics-misc} - @{acp}]]]]" disabled></span>
 					<span class="sheet-table-data-center"><input title="@{Acrobatics-ranks}" type="number" name="attr_Acrobatics-ranks" value="0"></span>
 					<select title="@{Acrobatics-mod}" name="attr_Acrobatics-mod"></span>
 						<option value="@{DEX-mod}">&bull;DEX</option>
@@ -1748,7 +1831,7 @@
 					<span class="sheet-table-data-center"><input title="Athletics-cs" type="checkbox" name="attr_Athletics-cs" value="1" /></span>
 					<span class="sheet-table-data-center"></span>
 					<span class="sheet-table-data-left">Athletics *</span>
-					<span class="sheet-table-data-center"><input title="Athletics" type="number" name="attr_Athletics" style="background-color:#c5d1de;" value="[[@{Athletics-ranks} + @{Athletics-mod} + @{Athletics-trained} + @{Athletics-race} + @{Athletics-enh} + @{Athletics-ins} + @{Athletics-div} + @{Athletics-misc} - @{acp}]]" disabled></span>
+					<span class="sheet-table-data-center"><input title="@{Athletics}" type="number" name="attr_Athletics" style="background-color:#c5d1de;" value="[[[[@{Athletics-ranks} + @{Athletics-mod} + @{Athletics-trained} + @{Athletics-race} + @{Athletics-enh} + @{Athletics-ins} + @{Athletics-div} + @{Athletics-misc} - @{acp}]]]]" disabled></span>
 					<span class="sheet-table-data-center"><input title="Athletics-ranks" type="number" name="attr_Athletics-ranks" value="0"></span>
 					<select title="Athletics-mod" name="attr_Athletics-mod"></span>
 						<option value="@{STR-mod}">&bull;STR</option>
@@ -1772,7 +1855,7 @@
 					<span class="sheet-table-data-center"><input title="Bluff-cs" type="checkbox" name="attr_Bluff-cs" value="1" /></span>
 					<span class="sheet-table-data-center"></span>
 					<span class="sheet-table-data-left">Bluff</span>
-					<span class="sheet-table-data-center"><input title="Bluff" type="number" name="attr_Bluff" style="background-color:#c5d1de;" value="[[@{Bluff-ranks} + @{Bluff-mod} + @{Bluff-trained} + @{Bluff-race} + @{Bluff-enh} + @{Bluff-ins} + @{Bluff-div} + @{Bluff-misc}]]" disabled></span>
+					<span class="sheet-table-data-center"><input title="@{Bluff}" type="number" name="attr_Bluff" style="background-color:#c5d1de;" value="[[[[@{Bluff-ranks} + @{Bluff-mod} + @{Bluff-trained} + @{Bluff-race} + @{Bluff-enh} + @{Bluff-ins} + @{Bluff-div} + @{Bluff-misc}]]]]" disabled></span>
 					<span class="sheet-table-data-center"><input title="Bluff-ranks" type="number" name="attr_Bluff-ranks" value="0"></span>
 					<select title="Bluff-mod" name="attr_Bluff-mod"></span>
 						<option value="@{CHA-mod}">&bull;CHA</option>
@@ -1796,7 +1879,7 @@
 					<span class="sheet-table-data-center"><input title="Computers-cs" type="checkbox" name="attr_Computers-cs" value="1" /></span>
 					<span class="sheet-table-data-center">&#10013;</span>
 					<span class="sheet-table-data-left">Computers</span>
-					<span class="sheet-table-data-center"><input title="Computers" type="number" name="attr_Computers" style="background-color:#c5d1de;" value="[[@{Computers-ranks} + @{Computers-mod} + @{Computers-trained} + @{Computers-race} + @{Computers-enh} + @{Computers-ins} + @{Computers-div} + @{Computers-misc}]]" disabled></span>
+					<span class="sheet-table-data-center"><input title="@{Computers}" type="number" name="attr_Computers" style="background-color:#c5d1de;" value="[[[[@{Computers-ranks} + @{Computers-mod} + @{Computers-trained} + @{Computers-race} + @{Computers-enh} + @{Computers-ins} + @{Computers-div} + @{Computers-misc}]]]]" disabled></span>
 					<span class="sheet-table-data-center"><input title="Computers-ranks" type="number" name="attr_Computers-ranks" value="0"></span>
 					<select title="Computers-mod" name="attr_Computers-mod"></span>
 						<option value="@{INT-mod}">&bull;INT</option>
@@ -1820,7 +1903,7 @@
 					<span class="sheet-table-data-center"><input title="Culture-cs" type="checkbox" name="attr_Culture-cs" value="1" /></span>
 					<span class="sheet-table-data-center">&#10013;</span>
 					<span class="sheet-table-data-left">Culture</span>
-					<span class="sheet-table-data-center"><input title="Culture" type="number" name="attr_Culture" style="background-color:#c5d1de;" value="[[@{Culture-ranks} + @{Culture-mod} + @{Culture-trained} + @{Culture-race} + @{Culture-enh} + @{Culture-ins} + @{Culture-div} + @{Culture-misc}]]" disabled></span>
+					<span class="sheet-table-data-center"><input title="@{Culture}" type="number" name="attr_Culture" style="background-color:#c5d1de;" value="[[[[@{Culture-ranks} + @{Culture-mod} + @{Culture-trained} + @{Culture-race} + @{Culture-enh} + @{Culture-ins} + @{Culture-div} + @{Culture-misc}]]]]" disabled></span>
 					<span class="sheet-table-data-center"><input title="Culture-ranks" type="number" name="attr_Culture-ranks" value="0"></span>
 					<select title="Culture-mod" name="attr_Culture-mod"></span>
 						<option value="@{INT-mod}">&bull;INT</option>
@@ -1844,7 +1927,7 @@
 					<span class="sheet-table-data-center"><input title="Diplomacy-cs" type="checkbox" name="attr_Diplomacy-cs" value="1" /></span>
 					<span class="sheet-table-data-center"></span>
 					<span class="sheet-table-data-left">Diplomacy</span>
-					<span class="sheet-table-data-center"><input title="Diplomacy" type="number" name="attr_Diplomacy" style="background-color:#c5d1de;" value="[[@{Diplomacy-ranks} + @{Diplomacy-mod} + @{Diplomacy-trained} + @{Diplomacy-race} + @{Diplomacy-enh} + @{Diplomacy-ins} + @{Diplomacy-div} + @{Diplomacy-misc}]]" disabled></span>
+					<span class="sheet-table-data-center"><input title="@{Diplomacy}" type="number" name="attr_Diplomacy" style="background-color:#c5d1de;" value="[[[[@{Diplomacy-ranks} + @{Diplomacy-mod} + @{Diplomacy-trained} + @{Diplomacy-race} + @{Diplomacy-enh} + @{Diplomacy-ins} + @{Diplomacy-div} + @{Diplomacy-misc}]]]]" disabled></span>
 					<span class="sheet-table-data-center"><input title="Diplomacy-ranks" type="number" name="attr_Diplomacy-ranks" value="0"></span>
 					<select title="Diplomacy-mod" name="attr_Diplomacy-mod"></span>
 						<option value="@{CHA-mod}">&bull;CHA</option>
@@ -1868,7 +1951,7 @@
 					<span class="sheet-table-data-center"><input title="Disguise-cs" type="checkbox" name="attr_Disguise-cs" value="1" /></span>
 					<span class="sheet-table-data-center"></span>
 					<span class="sheet-table-data-left">Disguise</span>
-					<span class="sheet-table-data-center"><input title="Disguise" type="number" name="attr_Disguise" style="background-color:#c5d1de;" value="[[@{Disguise-ranks} + @{Disguise-mod} + @{Disguise-trained} + @{Disguise-race} + @{Disguise-enh} + @{Disguise-ins} + @{Disguise-div} + @{Disguise-misc}]]" disabled></span>
+					<span class="sheet-table-data-center"><input title="@{Disguise}" type="number" name="attr_Disguise" style="background-color:#c5d1de;" value="[[[[@{Disguise-ranks} + @{Disguise-mod} + @{Disguise-trained} + @{Disguise-race} + @{Disguise-enh} + @{Disguise-ins} + @{Disguise-div} + @{Disguise-misc}]]]]" disabled></span>
 					<span class="sheet-table-data-center"><input title="Disguise-ranks" type="number" name="attr_Disguise-ranks" value="0"></span>
 					<select title="Disguise-mod" name="attr_Disguise-mod"></span>
 						<option value="@{CHA-mod}">&bull;CHA</option>
@@ -1892,7 +1975,7 @@
 					<span class="sheet-table-data-center"><input title="Engineering-cs" type="checkbox" name="attr_Engineering-cs" value="1" /></span>
 					<span class="sheet-table-data-center">&#10013;</span>
 					<span class="sheet-table-data-left">Engineering</span>
-					<span class="sheet-table-data-center"><input title="Engineering" type="number" name="attr_Engineering" style="background-color:#c5d1de;" value="[[@{Engineering-ranks} + @{Engineering-mod} + @{Engineering-trained} + @{Engineering-race} + @{Engineering-enh} + @{Engineering-ins} + @{Engineering-div} + @{Engineering-misc}]]" disabled></span>
+					<span class="sheet-table-data-center"><input title="@{Engineering}" type="number" name="attr_Engineering" style="background-color:#c5d1de;" value="[[[[@{Engineering-ranks} + @{Engineering-mod} + @{Engineering-trained} + @{Engineering-race} + @{Engineering-enh} + @{Engineering-ins} + @{Engineering-div} + @{Engineering-misc}]]]]" disabled></span>
 					<span class="sheet-table-data-center"><input title="Engineering-ranks" type="number" name="attr_Engineering-ranks" value="0"></span>
 					<select title="Engineering-mod" name="attr_Engineering-mod"></span>
 						<option value="@{INT-mod}">&bull;INT</option>
@@ -1916,7 +1999,7 @@
 					<span class="sheet-table-data-center"><input title="Intimidate-cs" type="checkbox" name="attr_Intimidate-cs" value="1" /></span>
 					<span class="sheet-table-data-center"></span>
 					<span class="sheet-table-data-left">Intimidate</span>
-					<span class="sheet-table-data-center"><input title="Intimidate" type="number" name="attr_Intimidate" style="background-color:#c5d1de;" value="[[@{Intimidate-ranks} + @{Intimidate-mod} + @{Intimidate-trained} + @{Intimidate-race} + @{Intimidate-enh} + @{Intimidate-ins} + @{Intimidate-div} + @{Intimidate-misc}]]" disabled></span>
+					<span class="sheet-table-data-center"><input title="@{Intimidate}" type="number" name="attr_Intimidate" style="background-color:#c5d1de;" value="[[[[@{Intimidate-ranks} + @{Intimidate-mod} + @{Intimidate-trained} + @{Intimidate-race} + @{Intimidate-enh} + @{Intimidate-ins} + @{Intimidate-div} + @{Intimidate-misc}]]]]" disabled></span>
 					<span class="sheet-table-data-center"><input title="Intimidate-ranks" type="number" name="attr_Intimidate-ranks" value="0"></span>
 					<select title="Intimidate-mod" name="attr_Intimidate-mod"></span>
 						<option value="@{CHA-mod}">&bull;CHA</option>
@@ -1940,7 +2023,7 @@
 					<span class="sheet-table-data-center"><input title="Life-Science-cs" type="checkbox" name="attr_Life-Science-cs" value="1" /></span>
 					<span class="sheet-table-data-center">&#10013;</span>
 					<span class="sheet-table-data-left">Life Science</span>
-					<span class="sheet-table-data-center"><input title="Life-Science" type="number" name="attr_Life-Science" style="background-color:#c5d1de;" value="[[@{Life-Science-ranks} + @{Life-Science-mod} + @{Life-Science-trained} + @{Life-Science-race} + @{Life-Science-enh} + @{Life-Science-ins} + @{Life-Science-div} + @{Life-Science-misc}]]" disabled></span>
+					<span class="sheet-table-data-center"><input title="@{Life-Science}" type="number" name="attr_Life-Science" style="background-color:#c5d1de;" value="[[[[@{Life-Science-ranks} + @{Life-Science-mod} + @{Life-Science-trained} + @{Life-Science-race} + @{Life-Science-enh} + @{Life-Science-ins} + @{Life-Science-div} + @{Life-Science-misc}]]]]" disabled></span>
 					<span class="sheet-table-data-center"><input title="Life-Science-ranks" type="number" name="attr_Life-Science-ranks" value="0"></span>
 					<select title="Life-Science-mod" name="attr_Life-Science-mod"></span>
 						<option value="@{INT-mod}">&bull;INT</option>
@@ -1964,7 +2047,7 @@
 					<span class="sheet-table-data-center"><input title="Medicine-cs" type="checkbox" name="attr_Medicine-cs" value="1" /></span>
 					<span class="sheet-table-data-center">&#10013;</span>
 					<span class="sheet-table-data-left">Medicine</span>
-					<span class="sheet-table-data-center"><input title="Medicine" type="number" name="attr_Medicine" style="background-color:#c5d1de;" value="[[@{Medicine-ranks} + @{Medicine-mod} + @{Medicine-trained} + @{Medicine-race} + @{Medicine-enh} + @{Medicine-ins} + @{Medicine-div} + @{Medicine-misc}]]" disabled></span>
+					<span class="sheet-table-data-center"><input title="@{Medicine}" type="number" name="attr_Medicine" style="background-color:#c5d1de;" value="[[[[@{Medicine-ranks} + @{Medicine-mod} + @{Medicine-trained} + @{Medicine-race} + @{Medicine-enh} + @{Medicine-ins} + @{Medicine-div} + @{Medicine-misc}]]]]" disabled></span>
 					<span class="sheet-table-data-center"><input title="Medicine-ranks" type="number" name="attr_Medicine-ranks" value="0"></span>
 					<select title="Medicine-mod" name="attr_Medicine-mod"></span>
 						<option value="@{INT-mod}">&bull;INT</option>
@@ -1988,7 +2071,7 @@
 					<span class="sheet-table-data-center"><input title="Mysticism-cs" type="checkbox" name="attr_Mysticism-cs" value="1" /></span>
 					<span class="sheet-table-data-center">&#10013;</span>
 					<span class="sheet-table-data-left">Mysticism</span>
-					<span class="sheet-table-data-center"><input title="Mysticism" type="number" name="attr_Mysticism" style="background-color:#c5d1de;" value="[[@{Mysticism-ranks} + @{Mysticism-mod} + @{Mysticism-trained} + @{Mysticism-race} + @{Mysticism-enh} + @{Mysticism-ins} + @{Mysticism-div} + @{Mysticism-misc}]]" disabled></span>
+					<span class="sheet-table-data-center"><input title="@{Mysticism}" type="number" name="attr_Mysticism" style="background-color:#c5d1de;" value="[[[[@{Mysticism-ranks} + @{Mysticism-mod} + @{Mysticism-trained} + @{Mysticism-race} + @{Mysticism-enh} + @{Mysticism-ins} + @{Mysticism-div} + @{Mysticism-misc}]]]]" disabled></span>
 					<span class="sheet-table-data-center"><input title="Mysticism-ranks" type="number" name="attr_Mysticism-ranks" value="0"></span>
 					<select title="Mysticism-mod" name="attr_Mysticism-mod"></span>
 						<option value="@{WIS-mod}">&bull;WIS</option>
@@ -2012,7 +2095,7 @@
 					<span class="sheet-table-data-center"><input title="Perception-cs" type="checkbox" name="attr_Perception-cs" value="1" /></span>
 					<span class="sheet-table-data-center"></span>
 					<span class="sheet-table-data-left">Perception</span>
-					<span class="sheet-table-data-center"><input title="Perception" type="number" name="attr_Perception" style="background-color:#c5d1de;" value="[[@{Perception-ranks} + @{Perception-mod} + @{Perception-trained} + @{Perception-race} + @{Perception-enh} + @{Perception-ins} + @{Perception-div} + @{Perception-misc}]]" disabled></span>
+					<span class="sheet-table-data-center"><input title="@{Perception}" type="number" name="attr_Perception" style="background-color:#c5d1de;" value="[[[[@{Perception-ranks} + @{Perception-mod} + @{Perception-trained} + @{Perception-race} + @{Perception-enh} + @{Perception-ins} + @{Perception-div} + @{Perception-misc}]]]]" disabled></span>
 					<span class="sheet-table-data-center"><input title="Perception-ranks" type="number" name="attr_Perception-ranks" value="0"></span>
 					<select title="Perception-mod" name="attr_Perception-mod"></span>
 						<option value="@{WIS-mod}">&bull;WIS</option>
@@ -2036,7 +2119,7 @@
 					<span class="sheet-table-data-center"><input title="Physical-Science-cs" type="checkbox" name="attr_Physical-Science-cs" value="1" /></span>
 					<span class="sheet-table-data-center">&#10013;</span>
 					<span class="sheet-table-data-left">Physical Science</span>
-					<span class="sheet-table-data-center"><input title="Physical-Science" type="number" name="attr_Physical-Science" style="background-color:#c5d1de;" value="[[@{Physical-Science-ranks} + @{Physical-Science-mod} + @{Physical-Science-trained} + @{Physical-Science-race} + @{Physical-Science-enh} + @{Physical-Science-ins} + @{Physical-Science-div} + @{Physical-Science-misc}]]" disabled></span>
+					<span class="sheet-table-data-center"><input title="@{Physical-Science}" type="number" name="attr_Physical-Science" style="background-color:#c5d1de;" value="[[[[@{Physical-Science-ranks} + @{Physical-Science-mod} + @{Physical-Science-trained} + @{Physical-Science-race} + @{Physical-Science-enh} + @{Physical-Science-ins} + @{Physical-Science-div} + @{Physical-Science-misc}]]]]" disabled></span>
 					<span class="sheet-table-data-center"><input title="Physical-Science-ranks" type="number" name="attr_Physical-Science-ranks" value="0"></span>
 					<select title="Physical-Science-mod" name="attr_Physical-Science-mod"></span>
 						<option value="@{INT-mod}">&bull;INT</option>
@@ -2060,7 +2143,7 @@
 					<span class="sheet-table-data-center"><input title="Piloting-cs" type="checkbox" name="attr_Piloting-cs" value="1" /></span>
 					<span class="sheet-table-data-center"></span>
 					<span class="sheet-table-data-left">Piloting</span>
-					<span class="sheet-table-data-center"><input title="Piloting" type="number" name="attr_Piloting" style="background-color:#c5d1de;" value="[[@{Piloting-ranks} + @{Piloting-mod} + @{Piloting-trained} + @{Piloting-race} + @{Piloting-enh} + @{Piloting-ins} + @{Piloting-div} + @{Piloting-misc}]]" disabled></span>
+					<span class="sheet-table-data-center"><input title="@{Piloting}" type="number" name="attr_Piloting" style="background-color:#c5d1de;" value="[[[[@{Piloting-ranks} + @{Piloting-mod} + @{Piloting-trained} + @{Piloting-race} + @{Piloting-enh} + @{Piloting-ins} + @{Piloting-div} + @{Piloting-misc}]]]]" disabled></span>
 					<span class="sheet-table-data-center"><input title="Piloting-ranks" type="number" name="attr_Piloting-ranks" value="0"></span>
 					<select title="Piloting-mod" name="attr_Piloting-mod"></span>
 						<option value="@{DEX-mod}">&bull;DEX</option>
@@ -2084,7 +2167,7 @@
 					<span class="sheet-table-data-center"><input title="Profession-cs" type="checkbox" name="attr_Profession-cs" value="1" /></span>
 					<span class="sheet-table-data-center">&#10013;</span>
 					<span class="sheet-table-data-left">Profession:<input title="Profession-name" type="text" name="attr_Profession-name"></span>
-					<span class="sheet-table-data-center"><input title="Profession" type="number" name="attr_Profession" style="background-color:#c5d1de;" value="[[@{Profession-ranks} + @{Profession-mod} + @{Profession-trained} + @{Profession-race} + @{Profession-enh} + @{Profession-ins} + @{Profession-div} + @{Profession-misc}]]" disabled></span>
+					<span class="sheet-table-data-center"><input title="@{Profession}" type="number" name="attr_Profession" style="background-color:#c5d1de;" value="[[[[@{Profession-ranks} + @{Profession-mod} + @{Profession-trained} + @{Profession-race} + @{Profession-enh} + @{Profession-ins} + @{Profession-div} + @{Profession-misc}]]]]" disabled></span>
 					<span class="sheet-table-data-center"><input title="Profession-ranks" type="number" name="attr_Profession-ranks" value="0"></span>
 					<select title="Profession-mod" name="attr_Profession-mod"></span>
 						<option value="@{WIS-mod}">&bull;WIS</option>
@@ -2105,10 +2188,10 @@
 				</div>
 				<div class="sheet-table-row">
 					<span class="sheet-table-data-center"><button class="sheet-text-button" title="%{Profession2-Check}" type="roll" value="&{template:pf_check} {{name=@{character_name}'s }} {{check=Profession: @{Profession2-name} Check}} {{skill_chk=[[1d20 + @{Profession2}]]}} {{notes=@{profession2-notes}}}" name="roll_Profession2-Check"></button></span>
-					<span class="sheet-table-data-center"><input title="Profession2-cs" type="checkbox" name="attr_Profession2-cs" value="1" /></span>
+					<span class="sheet-table-data-center"><input title="@{Profession2-cs}" type="checkbox" name="attr_Profession2-cs" value="1" /></span>
 					<span class="sheet-table-data-center">&#10013;</span>
 					<span class="sheet-table-data-left">Profession:<input title="Profession2-name" type="text" name="attr_Profession2-name"></span>
-					<span class="sheet-table-data-center"><input title="Profession2" type="number" name="attr_Profession2" style="background-color:#c5d1de;" value="[[@{Profession2-ranks} + @{Profession2-mod} + @{Profession2-trained} + @{Profession2-race} + @{Profession2-enh} + @{Profession2-ins} + @{Profession2-div} + @{Profession2-misc}]]" disabled></span>
+					<span class="sheet-table-data-center"><input title="@{Profession2}" type="number" name="attr_Profession2" style="background-color:#c5d1de;" value="[[[[@{Profession2-ranks} + @{Profession2-mod} + @{Profession2-trained} + @{Profession2-race} + @{Profession2-enh} + @{Profession2-ins} + @{Profession2-div} + @{Profession2-misc}]]]]" disabled></span>
 					<span class="sheet-table-data-center"><input title="Profession2-ranks" type="number" name="attr_Profession2-ranks" value="0"></span>
 					<select title="Profession2-mod" name="attr_Profession2-mod"></span>
 						<option value="@{WIS-mod}">&bull;WIS</option>
@@ -2132,7 +2215,7 @@
 					<span class="sheet-table-data-center"><input title="Sense-Motive-cs" type="checkbox" name="attr_Sense-Motive-cs" value="1" /></span>
 					<span class="sheet-table-data-center"></span>
 					<span class="sheet-table-data-left">Sense Motive</span>
-					<span class="sheet-table-data-center"><input title="Sense-Motive" type="number" name="attr_Sense-Motive" style="background-color:#c5d1de;" value="[[@{Sense-Motive-ranks} + @{Sense-Motive-mod} + @{Sense-Motive-trained} + @{Sense-Motive-race} + @{Sense-Motive-enh} + @{Sense-Motive-ins} + @{Sense-Motive-div} + @{Sense-Motive-misc}]]" disabled></span>
+					<span class="sheet-table-data-center"><input title="@{Sense-Motive}" type="number" name="attr_Sense-Motive" style="background-color:#c5d1de;" value="[[[[@{Sense-Motive-ranks} + @{Sense-Motive-mod} + @{Sense-Motive-trained} + @{Sense-Motive-race} + @{Sense-Motive-enh} + @{Sense-Motive-ins} + @{Sense-Motive-div} + @{Sense-Motive-misc}]]]]" disabled></span>
 					<span class="sheet-table-data-center"><input title="Sense-Motive-ranks" type="number" name="attr_Sense-Motive-ranks" value="0"></span>
 					<select title="Sense-Motive-mod" name="attr_Sense-Motive-mod"></span>
 						<option value="@{WIS-mod}">&bull;WIS</option>
@@ -2156,7 +2239,7 @@
 					<span class="sheet-table-data-center"><input title="Sleight-of-Hand-cs" type="checkbox" name="attr_Sleight-of-Hand-cs" value="1" /></span>
 					<span class="sheet-table-data-center">&#10013;</span>
 					<span class="sheet-table-data-left">Sleight of Hand *</span>
-					<span class="sheet-table-data-center"><input title="Sleight-of-Hand" type="number" name="attr_Sleight-of-Hand" style="background-color:#c5d1de;" value="[[@{Sleight-of-Hand-ranks} + @{Sleight-of-Hand-mod} + @{Sleight-of-Hand-trained} + @{Sleight-of-Hand-race} + @{Sleight-of-Hand-enh} + @{Sleight-of-Hand-ins} + @{Sleight-of-Hand-div} + @{Sleight-of-Hand-misc} - @{acp}]]" disabled></span>
+					<span class="sheet-table-data-center"><input title="@{Sleight-of-Hand}" type="number" name="attr_Sleight-of-Hand" style="background-color:#c5d1de;" value="[[[[@{Sleight-of-Hand-ranks} + @{Sleight-of-Hand-mod} + @{Sleight-of-Hand-trained} + @{Sleight-of-Hand-race} + @{Sleight-of-Hand-enh} + @{Sleight-of-Hand-ins} + @{Sleight-of-Hand-div} + @{Sleight-of-Hand-misc} - @{acp}]]]]" disabled></span>
 					<span class="sheet-table-data-center"><input title="Sleight-of-Hand-ranks" type="number" name="attr_Sleight-of-Hand-ranks" value="0"></span>
 					<select title="Sleight-of-Hand-mod" name="attr_Sleight-of-Hand-mod"></span>
 						<option value="@{DEX-mod}">&bull;DEX</option>
@@ -2180,7 +2263,7 @@
 					<span class="sheet-table-data-center"><input title="Stealth-cs" type="checkbox" name="attr_Stealth-cs" value="1" /></span>
 					<span class="sheet-table-data-center"></span>
 					<span class="sheet-table-data-left">Stealth *</span>
-					<span class="sheet-table-data-center"><input title="Stealth" type="number" name="attr_Stealth" style="background-color:#c5d1de;" value="[[@{Stealth-ranks} + @{Stealth-mod} + @{Stealth-trained} + @{Stealth-race} + @{Stealth-enh} + @{Stealth-ins} + @{Stealth-div} + @{Stealth-misc} - @{acp}]]" disabled></span>
+					<span class="sheet-table-data-center"><input title="@{Stealth}" type="number" name="attr_Stealth" style="background-color:#c5d1de;" value="[[[[@{Stealth-ranks} + @{Stealth-mod} + @{Stealth-trained} + @{Stealth-race} + @{Stealth-enh} + @{Stealth-ins} + @{Stealth-div} + @{Stealth-misc} - @{acp}]]]]" disabled></span>
 					<span class="sheet-table-data-center"><input title="Stealth-ranks" type="number" name="attr_Stealth-ranks" value="0"></span>
 					<select title="Stealth-mod" name="attr_Stealth-mod"></span>
 						<option value="@{DEX-mod}">&bull;DEX</option>
@@ -2204,7 +2287,7 @@
 					<span class="sheet-table-data-center"><input title="Survival-cs" type="checkbox" name="attr_Survival-cs" value="1" /></span>
 					<span class="sheet-table-data-center"></span>
 					<span class="sheet-table-data-left">Survival</span>
-					<span class="sheet-table-data-center"><input title="Survival" type="number" name="attr_Survival" style="background-color:#c5d1de;" value="[[@{Survival-ranks} + @{Survival-mod} + @{Survival-trained} + @{Survival-race} + @{Survival-enh} + @{Survival-ins} + @{Survival-div} + @{Survival-misc}]]" disabled></span>
+					<span class="sheet-table-data-center"><input title="@{Survival}" type="number" name="attr_Survival" style="background-color:#c5d1de;" value="[[[[@{Survival-ranks} + @{Survival-mod} + @{Survival-trained} + @{Survival-race} + @{Survival-enh} + @{Survival-ins} + @{Survival-div} + @{Survival-misc}]]]]" disabled></span>
 					<span class="sheet-table-data-center"><input title="Survival-ranks" type="number" name="attr_Survival-ranks" value="0"></span>
 					<select title="Survival-mod" name="attr_Survival-mod"></span>
 						<option value="@{WIS-mod}">&bull;WIS</option>
@@ -2232,7 +2315,7 @@
 					<span class="sheet-table-data-center"><input title="Misc-Skill-0-cs" type="checkbox" name="attr_Misc-Skill-0-cs" value="1" /></span>
 					<span class="sheet-table-data-center" style="opacity: 0;" >=</span>
 					<span class="sheet-table-data-center"><input style="width: 162px;"type="text" title="Misc-Skill-0-name" name="attr_Misc-Skill-0-name"></span>
-					<span class="sheet-table-data-center"><input title="Misc-Skill-0" type="number" name="attr_Misc-Skill-0"  style="background-color:#c5d1de;" value="[[@{Misc-Skill-0-ranks} + @{Misc-Skill-0-ability} + @{Misc-Skill-0-misc}]]" disabled></span>
+					<span class="sheet-table-data-center"><input title="@{Misc-Skill-0}" type="number" name="attr_Misc-Skill-0"  style="background-color:#c5d1de;" value="[[[[@{Misc-Skill-0-ranks} + @{Misc-Skill-0-ability} + @{Misc-Skill-0-misc}]]]]" disabled></span>
 					<span class="sheet-table-data-center"><input title="Misc-Skill-0-ranks" type="number" name="attr_Misc-Skill-0-ranks" value="0"></span>
 					<span class="sheet-table-data-center">
 						<select title="Misc-Skill-0-ability" name="attr_Misc-Skill-0-ability">
@@ -2252,7 +2335,7 @@
 					<span class="sheet-table-data-center"><input title="Misc-Skill-1-cs" type="checkbox" name="attr_Misc-Skill-1-cs" value="1" /></span>
 					<span class="sheet-table-data-center" style="opacity: 0;" >=</span>
 					<span class="sheet-table-data-center"><input type="text" title="Misc-Skill-1-name" name="attr_Misc-Skill-1-name"></span>
-					<span class="sheet-table-data-center"><input title="Misc-Skill-1" type="number" name="attr_Misc-Skill-1" style="background-color:#c5d1de;" value="[[@{Misc-Skill-1-ranks} + @{Misc-Skill-1-ability} + @{Misc-Skill-1-misc}]]" disabled></span>
+					<span class="sheet-table-data-center"><input title="@{Misc-Skill-1}" type="number" name="attr_Misc-Skill-1" style="background-color:#c5d1de;" value="[[[[@{Misc-Skill-1-ranks} + @{Misc-Skill-1-ability} + @{Misc-Skill-1-misc}]]]]" disabled></span>
 					<span class="sheet-table-data-center"><input title="Misc-Skill-1-ranks" type="number" name="attr_Misc-Skill-1-ranks" value="0"></span>
 					<span class="sheet-table-data-center">
 						<select title="Misc-Skill-1-ability" name="attr_Misc-Skill-1-ability">
@@ -2272,7 +2355,7 @@
 					<span class="sheet-table-data-center"><input title="Misc-Skill-2-cs" type="checkbox" name="attr_Misc-Skill-2-cs" value="1" /></span>
 					<span class="sheet-table-data-center" style="opacity: 0;" >=</span>
 					<span class="sheet-table-data-center"><input type="text" title="Misc-Skill-2-name" name="attr_Misc-Skill-2-name"></span>
-					<span class="sheet-table-data-center"><input title="Misc-Skill-2" type="number" name="attr_Misc-Skill-2" style="background-color:#c5d1de;" value="[[@{Misc-Skill-2-ranks} + @{Misc-Skill-2-ability} + @{Misc-Skill-2-misc}]]" disabled></span>
+					<span class="sheet-table-data-center"><input title="@{Misc-Skill-2}" type="number" name="attr_Misc-Skill-2" style="background-color:#c5d1de;" value="[[[[@{Misc-Skill-2-ranks} + @{Misc-Skill-2-ability} + @{Misc-Skill-2-misc}]]]]" disabled></span>
 					<span class="sheet-table-data-center"><input title="Misc-Skill-2-ranks" type="number" name="attr_Misc-Skill-2-ranks" value="0"></span>
 					<span class="sheet-table-data-center">
 						<select title="Misc-Skill-2-ability" name="attr_Misc-Skill-2-ability">
@@ -2292,7 +2375,7 @@
 					<span class="sheet-table-data-center"><input title="Misc-Skill-3-cs" type="checkbox" name="attr_Misc-Skill-3-cs" value="1" /></span>
 					<span class="sheet-table-data-center"style="opacity: 0;" >=</span>
 					<span class="sheet-table-data-center"><input type="text" title="Misc-Skill-3-name" name="attr_Misc-Skill-3-name"></span>
-					<span class="sheet-table-data-center"><input title="Misc-Skill-3" type="number" name="attr_Misc-Skill-3" style="background-color:#c5d1de;" value="[[@{Misc-Skill-3-ranks} + @{Misc-Skill-3-ability} + @{Misc-Skill-3-misc}]]" disabled></span>
+					<span class="sheet-table-data-center"><input title="@{Misc-Skill-3}" type="number" name="attr_Misc-Skill-3" style="background-color:#c5d1de;" value="[[[[@{Misc-Skill-3-ranks} + @{Misc-Skill-3-ability} + @{Misc-Skill-3-misc}]]]]" disabled></span>
 					<span class="sheet-table-data-center"><input title="Misc-Skill-3-ranks" type="number" name="attr_Misc-Skill-3-ranks" value="0"></span>
 					<span class="sheet-table-data-center">
 						<select title="Misc-Skill-3-ability" name="attr_Misc-Skill-3-ability">
@@ -2312,7 +2395,7 @@
 					<span class="sheet-table-data-center"><input title="Misc-Skill-4-cs" type="checkbox" name="attr_Misc-Skill-4-cs" value="1" /></span>
 					<span class="sheet-table-data-center"style="opacity: 0;" >=</span>
 					<span class="sheet-table-data-center"><input type="text" title="Misc-Skill-4-name" name="attr_Misc-Skill-4-name"></span>
-					<span class="sheet-table-data-center"><input title="Misc-Skill-4" type="number" name="attr_Misc-Skill-4" style="background-color:#c5d1de;" value="[[@{Misc-Skill-4-ranks} + @{Misc-Skill-4-ability} + @{Misc-Skill-4-misc}]]" disabled></span>
+					<span class="sheet-table-data-center"><input title="@{Misc-Skill-4}" type="number" name="attr_Misc-Skill-4" style="background-color:#c5d1de;" value="[[[[@{Misc-Skill-4-ranks} + @{Misc-Skill-4-ability} + @{Misc-Skill-4-misc}]]]]" disabled></span>
 					<span class="sheet-table-data-center"><input title="Misc-Skill-4-ranks" type="number" name="attr_Misc-Skill-4-ranks" value="0"></span>
 					<span class="sheet-table-data-center">
 						<select title="Misc-Skill-4-ability" name="attr_Misc-Skill-4-ability">
@@ -2332,7 +2415,7 @@
 					<span class="sheet-table-data-center"><input title="Misc-Skill-5-cs" type="checkbox" name="attr_Misc-Skill-5-cs" value="1" /></span>
 					<span class="sheet-table-data-center" style="opacity: 0;" >=</span>
 					<span class="sheet-table-data-center"><input type="text" title="Misc-Skill-5-name" name="attr_Misc-Skill-5-name"></span>
-					<span class="sheet-table-data-center"><input title="Misc-Skill-5" type="number" name="attr_Misc-Skill-5" style="background-color:#c5d1de;" value="[[@{Misc-Skill-5-ranks} + @{Misc-Skill-5-ability} + @{Misc-Skill-5-misc}]]" disabled></span>
+					<span class="sheet-table-data-center"><input title="@{Misc-Skill-5}" type="number" name="attr_Misc-Skill-5" style="background-color:#c5d1de;" value="[[[[@{Misc-Skill-5-ranks} + @{Misc-Skill-5-ability} + @{Misc-Skill-5-misc}]]]]" disabled></span>
 					<span class="sheet-table-data-center"><input title="Misc-Skill-5-ranks" type="number" name="attr_Misc-Skill-5-ranks" value="0"></span>
 					<span class="sheet-table-data-center">
 						<select title="Misc-Skill-5-ability" name="attr_Misc-Skill-5-ability">
@@ -4452,7 +4535,7 @@
 				<span class="sheet-table-header" style="color: black; background-color:#D3D3D3;" ><i>Max</i></span>
 				<span class="sheet-table-header" style="color: black; background-color:#D3D3D3;" ><i>Max Calc</i></span>
 			</div>
-				<span class="sheet-table-data-center"><button title="repeating_drone-feats_$X_roll" type="roll" name="roll_roll" value="&{template:pf_check} {{name=@{drone_name}'s }} {{check=@{name}}} {{freq=@{freq}}} {{type=@{type}}} {{left=@{left}**/**@{max}}} {{notes=@{description}}}"></button></span>
+				<span class="sheet-table-data-center"><button title="repeating_drone-feats_$X_roll" type="roll" name="roll_roll" value="&{template:pf_check} {{name=@{drone_name}'s }} {{check=@{name}}} {{freq=@{freq}}} {{type=@{type}}} {{left=@{left}}} {{notes=@{description}}}"></button></span>
 				<span class="sheet-table-data-center"><input title="repeating_drone-feats_$X_type" type="text" value="Feat" name="attr_type" disabled></span>
 				<span class="sheet-table-data-center" style="width: 35%;" ><input title="repeating_drone-feats_$X_name" type="text" name="attr_name"></span>
 				<span class="sheet-table-data-center"><input title="repeating_drone-feats_$X_freq" type="text" name="attr_freq" placeholder="Frequency"></span>
@@ -4486,7 +4569,7 @@
 				<span class="sheet-table-header" style="color: black; background-color:#D3D3D3;" ><i>Max</i></span>
 				<span class="sheet-table-header" style="color: black; background-color:#D3D3D3;" ><i>Max Calc</i></span>
 			</div>
-				<span class="sheet-table-data-center"><button title="repeating_drone-mods_$X_roll" name="roll_roll" type="roll" value="&{template:pf_check} {{name=@{drone_name}'s }} {{check=@{name}}} {{freq=@{freq}}} {{type=@{type}}} {{left=@{left}**/**@{max}}} {{notes=@{description}}}"></button></span>
+				<span class="sheet-table-data-center"><button title="repeating_drone-mods_$X_roll" name="roll_roll" type="roll" value="&{template:pf_check} {{name=@{drone_name}'s }} {{check=@{name}}} {{freq=@{freq}}} {{type=@{type}}} {{left=@{left}}} {{notes=@{description}}}"></button></span>
 				<span class="sheet-table-data-center"><input title="repeating_drone-mods_$X_type" type="text" value="Mod" name="attr_type" disabled></span>
 				<span class="sheet-table-data-center" style="width: 35%;" ><input title="repeating_drone-mods_$X_name" type="text" name="attr_name"></span>
 				<span class="sheet-table-data-center"><input title="repeating_drone-mods_$X_freq" type="text" name="attr_freq" placeholder="Frequency"></span>
@@ -4520,7 +4603,7 @@
 				<span class="sheet-table-header" style="color: black; background-color:#D3D3D3;" ><i>Max</i></span>
 				<span class="sheet-table-header" style="color: black; background-color:#D3D3D3;" ><i>Max Calc</i></span>
 			</div>
-				<span class="sheet-table-data-center"><button title="repeating_drone-ability_$X_roll" name="roll_roll" type="roll" value="&{template:pf_check} {{name=@{drone_name}'s }} {{check=@{name}}} {{freq=@{freq}}} {{type=@{type}}} {{left=@{left}**/**@{max}}} {{notes=@{description}}}"></button></span>
+				<span class="sheet-table-data-center"><button title="repeating_drone-ability_$X_roll" name="roll_roll" type="roll" value="&{template:pf_check} {{name=@{drone_name}'s }} {{check=@{name}}} {{freq=@{freq}}} {{type=@{type}}} {{left=@{left}}} {{notes=@{description}}}"></button></span>
 				<span class="sheet-table-data-center"><input title="repeating_drone-ability_$X_type" type="text" value="Ability" name="attr_type" disabled></span>
 				<span class="sheet-table-data-center" style="width: 35%;" ><input title="repeating_drone-ability_$X_name" type="text" name="attr_name"></span>
 				<span class="sheet-table-data-center"><input title="repeating_drone-ability_$X_freq" type="text" name="attr_freq" placeholder="Frequency"></span>
@@ -4727,7 +4810,7 @@
 
 **Hull Points:** @{starship-hp} **/** @{starship-hp|max}
 
-**DT:** @{starship-damage-threshold}; **CT:** @{starship-critical-threshold}
+**DT:** @{starship-damage-threshold}; **CT:** [[@{starship-critical-threshold}]]
 
 **Speed:** @{starship-speed}; **Maneuverability:** @{starship-maneuverability}
 
@@ -5963,7 +6046,7 @@ If you have at least **12 ranks** in *Computers*, you can try to foil *Enemy* ta
 <span class="sheet-table-row-name"><button class="sheet-text-button" title="%{NPC-Ability-Checks}" type="roll" name="roll_NPC-Ability-Checks" value="/w @{character_name} &{template:pf_check} {{check=@{character_name}'s Ability Scores}} {{ability_list=[STR](~NPC-STR-Check)[DEX](~NPC-DEX-Check)[CON](~NPC-CON-Check)[INT](~NPC-INT-Check)[WIS](~NPC-WIS-Check)[CHA](~NPC-CHA-Check)}}">NPC Ability Checks</button></span>
 <span class="sheet-table-row-name"><button class="sheet-text-button" title="%{NPC-Attacks}" type="roll" name="NPC-roll_Attacks" value="@{NPC-API-attack-buttons}">NPC Attacks</button></span>
 <span class="sheet-table-row-name"><button class="sheet-text-button" title="%{NPC-Saves}" type="roll" name="NPC-roll_Saves" value="/w @{character_name} &{template:pf_check} {{check=@{character_name}'s Saves}} {{save_list=[Fort](~NPC-Fort-Save)[Ref](~NPC-Ref-Save)[Will](~NPC-Will-Save)}}">NPC Saving Throws</button></span>
-<span class="sheet-table-row-name"><button class="sheet-text-button" title="%{NPC-Skill-Checks}" type="roll" name="NPC-roll_Skill-Checks" value="/w @{character_name} &{template:pf_check} {{check=@{character_name}'s Skills}} {{skill_list=[Acrobatics](~NPC-Acrobatics-Check)[Athletics](~NPC-Athletics-Check)[Bluff](~NPC-Bluff-Check)[Computers](~NPC-Computers-Check)[Culture](~NPC-Culture-Check)[Diplomacy](~NPC-Diplomacy-Check)[Disguise](~NPC-Disguise-Check)[Engineering](~NPC-Engineering-Check)[Intimidate](~NPC-Intimidate-Check)[Life Science](~NPC-Life-Science-Check)[Medicine](~NPC-Medicine-Check)[Mysticism](~NPC-Mysticism-Check)[Perception](~NPC-Perception-Check)[Physical Science](~NPC-Physical-Science-Check)[Piloting](~NPC-Piloting-Check)[(@{misc-0})](~NPC-misc-0-Check)[(@{misc-1})](~NPC-misc-1-Check)[Sense Motive](~NPC-Sense-Motive-Check)[Sleight of Hand](~NPC-Sleight-of-Hand-Check)[Stealth](~NPC-Stealth-Check)[Survival](~NPC-Survival-Check)}}">NPC Skill Checks</button></span>
+<span class="sheet-table-row-name"><button class="sheet-text-button" title="%{NPC-Skill-Checks}" type="roll" name="NPC-roll_Skill-Checks" value="/w @{character_name} &{template:pf_check} {{check=@{character_name}'s Skills}} {{skill_list=[Acrobatics(@{Acrobatics-npc})](~NPC-Acrobatics-Check)[Athletics(@{Athletics-npc})](~NPC-Athletics-Check)[Bluff(@{Bluff-npc})](~NPC-Bluff-Check)[Computers(@{Computers-npc})](~NPC-Computers-Check)[Culture(@{Culture-npc})](~NPC-Culture-Check)[Diplomacy(@{Diplomacy-npc})](~NPC-Diplomacy-Check)[Disguise(@{Disguise-npc})](~NPC-Disguise-Check)[Engineering(@{Engineering-npc})](~NPC-Engineering-Check)[Intimidate(@{Intimidate-npc})](~NPC-Intimidate-Check)[Life Science(@{Life-Science-npc})](~NPC-Life-Science-Check)[Medicine(@{Medicine-npc})](~NPC-Medicine-Check)[Mysticism(@{Mysticism-npc})](~NPC-Mysticism-Check)[Perception(@{Perception-npc})](~NPC-Perception-Check)[Physical Science(@{Physical-Science-npc})](~NPC-Physical-Science-Check)[Piloting(@{Piloting-npc})](~NPC-Piloting-Check)[Sense Motive(@{Sense-Motive-npc})](~NPC-Sense-Motive-Check)[Sleight of Hand(@{Sleight-of-Hand-npc})](~NPC-Sleight-of-Hand-Check)[Stealth(@{Stealth-npc})](~NPC-Stealth-Check)[Survival(@{Survival-npc})](~NPC-Survival-Check)[@{misc-0-name}(@{misc-0})](~NPC-misc-0-Check)[@{misc-1-name}(@{misc-1})](~NPC-misc-1-Check)}}">NPC Skill Checks</button></span>
 	
 	<div class="sheet-table" style="width:100%;background-color:black;color:white;padding-left:10px;">
 		<span class="sheet-table-data-left" style="width:75%;text-align:left;"><input type="text" title="@{character_name}" name="attr_character_name" style="background-color:black;color:white;font-weight:bold;border:1px dotted #FFFFFF"/></span>
@@ -5999,15 +6082,15 @@ If you have at least **12 ranks** in *Computers*, you can try to foil *Enemy* ta
 			<div class="sheet-table-row">
 				<span class="sheet-table-data-left" style="width:10%;">
 					<select title="@{npc-alignment}" name="attr_npc-alignment">
-						<option value="LG">LG</option>
-						<option value="NG">NG</option>
-						<option value="CG">CG</option>
-						<option value="LN">LN</option>
-						<option value="N" selected>N</option>
-						<option value="CN">CN</option>
-						<option value="LE">LE</option>
-						<option value="NE">NE</option>
-						<option value="CE">CE</option>
+						<option value="Lawful Good">LG</option>
+						<option value="Neutral Good">NG</option>
+						<option value="Chaotic Good">CG</option>
+						<option value="Lawful Neutral">LN</option>
+						<option value="Neutral" selected>N</option>
+						<option value="Chaotic Neutral">CN</option>
+						<option value="Lawful Evil">LE</option>
+						<option value="Neutral Evil">NE</option>
+						<option value="Chaotic Evil">CE</option>
 					</select>
 				</span>
 				<span class="sheet-table-data-left" style="width:15%;">
@@ -6109,7 +6192,7 @@ If you have at least **12 ranks** in *Computers*, you can try to foil *Enemy* ta
 			</div>
 			<div class="sheet-table-row">
 				<span class="sheet-table-data-left" style="width:15%;"><b>Weaknesses</b></span>
-				<span class="sheet-table-data-left"><input type="text" title="@{npc-weaknesses}" name="attr_npc-weaknesses"></span>
+				<span class="sheet-table-data-left"><input type="text" title="@{weaknesses}" name="attr_weaknesses"></span>
 			</div>
 		</div>
 		<div class="sheet-table">
@@ -6197,6 +6280,14 @@ If you have at least **12 ranks** in *Computers*, you can try to foil *Enemy* ta
 				<span>&nbsp;</span>
 			</fieldset>
 		</div>
+		<span class="sheet-table-data-left"><button style="font-size:100%;" title="%{npc-cmb-roll}" type="roll" name="roll_npc-cmb-roll" value="@{npc-cmb-macro-text}">CMB</button></span>
+		<span class="sheet-table-data-left" ><b>CMB Attack Bonus</b></span>
+		<span class="sheet-table-data-left" ><input title="@{npc-cmb}" type="number" name="attr_npc-cmb" value="0"></span>
+		<b>Macro Text&#9660;</b>
+		<input type="checkbox" class="sheet-npc-cmb-macro-show" title="@{npc-cmb-macro-text-show}" name="attr_npc-cmb-macro-text-show" value="1"  />
+		<textarea class="sheet-npc-cmb-macro" title="@{npc-cmb-macro-text}" name="attr_npc-cmb-macro-text">/emas @{selected|token_name} attempts a '?{Select a 'Combat Maneuver'.|Bull Rush,Bull Rush|Dirty Trick,Dirty Trick|Disarm,Disarm|Grapple,Grapple|Reposition,Reposition|Sunder,Sunder|Trip,Trip}', combat maneuver!
+/w gm &{template:pf_custom} {{name=@{selected|token_name}'s '?{Select a 'Combat Maneuver'.|Bull Rush,Bull Rush|Dirty Trick,Dirty Trick|Disarm,Disarm|Grapple,Grapple|Reposition,Reposition|Sunder,Sunder|Trip,Trip}', Combat Maneuver}} {{Attack=[[1d20 + @{npc-cmb}]]}} {{Notes=@{CMB-notes}}}</textarea>
+		<br>
 		<br>
 		<span class="sheet-table-data-left" ><b>Space</b></span>
 		<span class="sheet-table-data-left" ><input title="@{space}" type="number" name="attr_space" value="5">ft.</span>
@@ -6468,6 +6559,88 @@ If you have at least **12 ranks** in *Computers*, you can try to foil *Enemy* ta
 	    </div>	
 	</div>
 </div>
+<div class="sheet-tab-content sheet-tab6">
+<b>Vehicles &#9660;</b>
+	<input type="checkbox" class="sheet-vehicles-show" title="@{vehicles-show}" name="attr_vehicles-show" value="1" style="opacity:0;width: 16px;height: 16px;position: relative;top: 1px;left: -7px;margin: -10px;cursor: pointer;z-index: 1;" checked/><span></span>
+	<div class="sheet-vehicles">
+		<div class="sheet-table">  
+			<span class="sheet-table-name">Vehicles</span> 
+	        <fieldset class="repeating_vehicle">
+            <b>Hide / Show &#9660;</b>
+	        <input type="checkbox" class="sheet-pc-vehicle-show" title="@{repeating_pc-vehicle-show}" name="attr_pc-vehicle-show" value="1" style="opacity:0;width: 16px;height: 16px;position: relative;top: 1px;left: -7px;margin: -10px;cursor: pointer;z-index: 1;" checked/><span></span>
+			<div class="sheet-pc-vehicle">
+				<div class="sheet-table-row">
+			    <span class="sheet-table-header" style="color: black; background-color:#D3D3D3;" ><i>Roll</i></span>
+			    <span class="sheet-table-header" style="color: black; background-color:#D3D3D3;" ><i>Level</i></span>
+				<span class="sheet-table-header" style="color: black; background-color:#D3D3D3;" ><i>Name</i></span>
+				<span class="sheet-table-header" style="color: black; background-color:#D3D3D3;" ><i>Type</i></span>
+				<span class="sheet-table-header" style="color: black; background-color:#D3D3D3;" ><i>Size</i></span>
+			</div>
+				<span class="sheet-table-data-center"><button title="%{repeating_vehicle_$X_roll}" type="roll" name="roll_roll" value="&{template:pf_custom} {{name=@{character_name}}} {{Statistics=**Level:** @{level}
+
+**Type:** @{type}
+
+**Size:** @{size}
+
+**HP:** @{HP} **/** **@{HP-max}**; **HP Broken:** @{HP-broken}
+
+**Speed:** @{speed};
+
+**EAC:** @{EAC}; **KAC:** @{KAC};
+
+**Cover:** @{cover}
+
+**Attack:** @{attack}
+
+**Modifiers:** @{modifiers}
+
+**Systems:** @{Systems}
+
+**Passengers:** @{passengers}}}"></button></span>
+				<span class="sheet-table-data-center"><input title="@{repeating_vehicle_$X_level}" type="number" value="0" name="attr_level"></span>
+				<span class="sheet-table-data-center" style="width: 40%;" ><input title="@{repeating_vehicle_$X_name}" type="text" placeholder="Name" name="attr_name"></span>
+				<span class="sheet-table-data-center" style="width: 20%;"><input title="@{repeating_vehicle_$X_type}" type="text" name="attr_type" placeholder="Type"></span>
+				<span class="sheet-table-data-center" style="width: 40%;"><input title="@{repeating_vehicle_$X_size}" type="text" name="attr_size" placeholder="Size"></span>
+			<div>
+			    <br>		
+				<span class="sheet-table-data-center" ><input title="@{repeating_vehicle_$X_hardness}" type="number" name="attr_hardness" /><div style="font-size: 90%;"<br><i><b>Hardness</b></i></span>
+				<span class="sheet-table-data-center" style="width: 1%;" ></span>
+				<span class="sheet-table-data-center" ><input title="@{repeating_vehicle_$X_HP}" type="number" name="attr_HP" step="any" /><div style="font-size: 90%;"<br><i><b>HP</b></i></span>
+				<span class="sheet-table-data-center" style="width: 2%;" ><b>/</b></span>
+				<span class="sheet-table-data-center" ><input title="@{repeating_vehicle_$X_HP-max}" type="number" name="attr_HP-max" /><div style="font-size: 90%;"<br><i><b>Max HP</b></i></span>
+				<span class="sheet-table-data-center" style="width: 1%;" ></span>
+				<span class="sheet-table-data-center" ><input title="@{repeating_vehicle_$X_HP-broken}" type="number" name="attr_HP-broken" /><div style="font-size: 90%;"<br><i><b>HP Broken</b></i></span>
+			    <span class="sheet-table-data-center" style="width: 1%;" ></span>
+			    <span class="sheet-table-data-center" style="width: 35%;" ><input title="@{repeating_vehicle_$X_speed}" type="text" name="attr_speed" /><div style="font-size: 90%;"<br><i><b>Speed</b></i></span>
+			    <span class="sheet-table-data-center" style="width: 1%;" ></span>
+			    <span class="sheet-table-data-center" ><input title="@{repeating_vehicle_$X_EAC}" type="number" name="attr_EAC" /><div style="font-size: 90%;"<br><i><b>EAC</b></i></span>
+			    <span class="sheet-table-data-center" style="width: 1%;" ></span>
+			    <span class="sheet-table-data-center" ><input title="@{repeating_vehicle_$X_KAC}" type="number" name="attr_KAC" /><div style="font-size: 90%;"<br><i><b>KAC</b></i></span>
+			    <span class="sheet-table-data-center" style="width: 1%;" ></span>
+			    <span class="sheet-table-data-center" style="width: 15%;"><input title="@{repeating_vehicle_$X_cover}" type="text" name="attr_cover" /><div style="font-size: 90%;"<br><i><b>Cover</b></i></span>
+			</div>
+			<div>
+			    <br>
+			    <span class="sheet-table-data-center" style="width: 1%;" ></span>
+				<span class="sheet-table-data-center" style="width: 38%;" ><input title="@{repeating_vehicle_$X_attack}" type="text" name="attr_attack" /><div style="font-size: 90%;"<br><i><b>Attack</b></i></span>
+			    <span class="sheet-table-data-center" style="width: 1%;" ></span>
+			    <span class="sheet-table-data-center" style="width: 25%;" ><input title="@{repeating_vehicle_$X_modifiers}" type="text" name="attr_modifiers" /><div style="font-size: 90%;"<br><i><b>Modifiers</b></i></span>
+			    <span class="sheet-table-data-center" style="width: 1%;" ></span>
+			    <span class="sheet-table-data-center" style="width: 25%;" ><input title="@{repeating_vehicle_$X_systems}" type="text" name="attr_systems" /><div style="font-size: 90%;"<br><i><b>Systems</b></i></span>
+			    <span class="sheet-table-data-center" style="width: 1%;" ></span>
+			    <span class="sheet-table-data-center" ><input title="@{repeating_vehicle_$X_passengers}" type="number" name="attr_passengers" value="0" /><div style="font-size: 90%;"<br><i><b>Passengers</b></i></span>
+			    <br>
+				<b>Special Abilities & Notes &#9660;</b>
+				<input type="checkbox" class="sheet-section-show" title="@{repeating_vehicle_$X_description-show}" name="attr_description-show" value="1" style="opacity:0;width: 16px;height: 16px;position: relative;top: 1px;left: -7px;margin: -10px;cursor: pointer;z-index: 1;" checked/><span></span>
+				<textarea style="height:50px; width: 99%;" class="sheet-section" title="@{repeating_vehicle_$X_description}" name="attr_description"></textarea>
+				<hr>
+			</div>	
+			</div>	
+			</fieldset>
+		</div>
+	</div>	
+</div>
+
 <div class="sheet-tab-content sheet-tab5">
 <b>API Macros &#9660;</b>
 	<input type="checkbox" class="sheet-settings-show" title="@{character-settings-show}" name="attr_settings-show" value="1" style="opacity:0;width: 16px;height: 16px;position: relative;top: 1px;left: -7px;margin: -10px;cursor: pointer;z-index: 1;" checked/><span></span>
@@ -6495,7 +6668,7 @@ If you have at least **12 ranks** in *Computers*, you can try to foil *Enemy* ta
 <br>
 <rolltemplate class="sheet-rolltemplate-pf_check">
     <div class="sheet-wrapper">
-        <div class="sheet-header_background"><div class="sheet-header">{{name}}{{check}}</div></div>
+        <div class="sheet-header_background" ><div class="sheet-header">{{name}}{{check}}</div></div>
         <div class="sheet-border">
             {{#ability_list}}
             <div class="sheet-content"><span class="tcat"></span>{{ability_list}}</div>{{/ability_list}}
@@ -6626,7 +6799,7 @@ If you have at least **12 ranks** in *Computers*, you can try to foil *Enemy* ta
             {{#defense-notes}}
             <div class="sheet-content"><span class="tcat">Defense Notes:</span><br>{{defense-notes}}</div>{{/defense-notes}}
             {{#notes}}
-            <div class="sheet-content"><span class="tcat">Notes:</span><br>{{notes}}</div>{{/notes}}
+            <div class="sheet-content" style="max-height: 180px; overflow: auto;"><span class="tcat">Notes:</span><br>{{notes}}</div>{{/notes}}
             {{#description}}
             <div class="sheet-content"><span class="tcat"></span>{{description}}</div>{{/description}}
         </div>
@@ -6913,7 +7086,18 @@ If you have at least **12 ranks** in *Computers*, you can try to foil *Enemy* ta
             {{/spell_uses_level_6}}
             </tr>
             <tr>
-                <td>{{spell_description}}</td>        
+            {{#spell_description}}
+                <td>
+            <div class="sheet-content" style="max-height: 170px; overflow: auto;"><span class="tcat"></span>{{spell_description}}</div>
+                </td>
+            {{/spell_description}}
+            </tr>
+            <tr>
+            {{#spell_tracking}}
+                <td>
+            <div class="sheet-content"><span class="tcat"></span>{{spell_tracking}}</div>
+                </td>        
+            {{/spell_tracking}}  
             </tr>
         </table>
     </div>
@@ -6989,7 +7173,7 @@ If you have at least **12 ranks** in *Computers*, you can try to foil *Enemy* ta
         <div class="sheet-header_background"><div class="sheet-header">{{name}}</div></div>
         <div class="sheet-border">
             {{#allprops() name}}
-            <div class="sheet-content"><span class="tcat">{{key}}: </span><br>{{value}}</div>{{/allprops() name}}
+            <div class="sheet-content" style="max-height: 180px; overflow: auto;"><span class="tcat">{{key}}: </span><br>{{value}}</div>{{/allprops() name}}
         </div>
     </div>
     </table>
